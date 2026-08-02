@@ -2,511 +2,146 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="AI 行业每日动态 · 2026-08-02">
+<meta property="og:title" content="今日 AI 动态 · 2026年08月02日">
+<meta property="og:description" content="26 个话题，来自 11 个信息源">
+<meta property="og:type" content="article">
 <title>AI 日报 · 2026-08-02</title>
-<!-- bundle.py replaces these two placeholders with the inlined library.
-     For local preview before bundling, swap them for:
-       <link rel="stylesheet" href="report.css"> ... <script src="report.js"></script> -->
 <style>
-/* ============================================================
-   report.css — reusable component library for html-report skill
-   One stylesheet, no dependencies. Components map 1:1 to the
-   relationship -> module table in SKILL.md. Theme via :root vars;
-   add data-theme="dark" on <html> for dark mode.
-   ============================================================ */
-
-:root {
-  --bg: #ffffff;
-  --surface: #f7f8fa;
-  --surface-2: #eef0f4;
-  --border: #e2e5ea;
-  --text: #1c2230;
-  --muted: #66708a;
-  --accent: #3b6fff;
-  --ok: #1f9d57;     /* pass / good / safe   */
-  --warn: #d9870a;   /* partial / caution    */
-  --bad: #d23b3b;    /* fail / risk / danger */
-  --info: #6b53d6;
-  --radius: 12px;
-  --maxw: 1240px;
-  --nav-w: 248px;
-  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
-          "Microsoft YaHei", Roboto, Helvetica, Arial, sans-serif;
-  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+:root{
+  --bg:#fff; --fg:#16181d; --fg-soft:#4a5160; --fg-mute:#8b93a3;
+  --line:#e6e8ec; --line-soft:#f0f2f5;
+  --accent:#2f6feb; --hot:#d64545; --warm:#d98324;
+  --maxw:760px;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",
+         "Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
 }
-html[data-theme="dark"] {
-  --bg: #0f1117; --surface: #181b24; --surface-2: #1f2330; --border: #2a2f3d;
-  --text: #e6e8ee; --muted: #9aa2b1; --accent: #7c9eff; --ok: #3fd68b;
-  --warn: #ffcb6b; --bad: #ff6b6b; --info: #c792ea;
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#101216; --fg:#e8eaee; --fg-soft:#a8b0bd; --fg-mute:#6d7686;
+    --line:#252932; --line-soft:#1c2027;
+    --accent:#5b8def; --hot:#e56464; --warm:#e0a04a;
+  }
 }
-
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0; background: var(--bg); color: var(--text); font-family: var(--font);
-  line-height: 1.6; -webkit-font-smoothing: antialiased;
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);
+  line-height:1.7;-webkit-font-smoothing:antialiased;
+  font-size:16px;
 }
+.wrap{max-width:var(--maxw);margin:0 auto;padding:2.5rem 1.5rem 5rem}
+a{color:inherit}
 
-/* ---------- Layout: left sticky nav + content ---------- */
-.report { display: flex; max-width: var(--maxw); margin: 0 auto; gap: 0; }
-.report-nav {
-  width: var(--nav-w); flex: 0 0 var(--nav-w); align-self: flex-start;
-  position: sticky; top: 0; height: 100vh; overflow-y: auto;
-  border-right: 1px solid var(--border); padding: 24px 16px;
-}
-.report-nav .nav-title { font-size: 13px; font-weight: 700; letter-spacing: .04em;
-  text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
-.report-nav a {
-  display: block; padding: 7px 12px; margin: 2px 0; border-radius: 8px;
-  color: var(--muted); text-decoration: none; font-size: 14px; line-height: 1.35;
-  border-left: 2px solid transparent;
-}
-.report-nav a:hover { background: var(--surface); color: var(--text); }
-.report-nav a.active { background: var(--surface); color: var(--accent);
-  border-left-color: var(--accent); font-weight: 600; }
-.report-main { flex: 1 1 auto; min-width: 0; padding: 40px 48px 96px; }
-.report-main > section { scroll-margin-top: 24px; padding-top: 8px; }
-.report-main > section + section { margin-top: 16px; }
+/* ── 页头 ── */
+.head{border-bottom:2px solid var(--fg);padding-bottom:1rem;margin-bottom:2rem}
+.kicker{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--fg-mute);font-weight:700}
+h1{font-size:2rem;line-height:1.2;margin:.35rem 0 .25rem;letter-spacing:-.025em;
+  font-weight:750}
+.date{color:var(--fg-mute);font-size:.88rem}
+.digest{font-size:.9rem;color:var(--fg-soft);line-height:1.8;
+  border-top:1px solid var(--line);margin-top:.9rem;padding-top:.75rem}
+.digest b{color:var(--fg);font-weight:650}
 
-/* Header */
-.report-head { margin-bottom: 28px; }
-.report-head .eyebrow { color: var(--muted); font-size: 13px; letter-spacing: .08em;
-  text-transform: uppercase; }
-.report-head h1 { font-size: 30px; margin: 6px 0 4px; font-weight: 800; letter-spacing: -.01em; }
-.report-head .sub { color: var(--muted); font-size: 15px; }
-
-h2 { font-size: 20px; margin: 36px 0 14px; font-weight: 700; letter-spacing: -.01em; }
-h3 { font-size: 16px; margin: 20px 0 8px; font-weight: 700; }
-p { margin: 8px 0; }
-a { color: var(--accent); }
-code { font-family: var(--mono); font-size: .9em; background: var(--surface-2);
-  padding: 1px 5px; border-radius: 5px; }
-
-/* Mobile nav toggle */
-.nav-toggle { display: none; }
-@media (max-width: 880px) {
-  .report { flex-direction: column; }
-  .report-nav { position: static; width: auto; height: auto; flex-basis: auto;
-    border-right: none; border-bottom: 1px solid var(--border); padding: 12px 16px; }
-  .report-nav a { display: inline-block; }
-  .report-main { padding: 24px 20px 72px; }
-  .report-head h1 { font-size: 24px; }
-}
-
-/* ============================================================
-   COMPONENTS
-   ============================================================ */
-
-/* ---- KPI strip (single key numbers) ---- */
-.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px; margin: 16px 0; }
-.kpi { background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 16px 18px; }
-.kpi .num { font-size: 28px; font-weight: 800; line-height: 1; letter-spacing: -.02em; }
-.kpi .label { color: var(--muted); font-size: 12.5px; margin-top: 7px; }
-.kpi.ok .num { color: var(--ok); } .kpi.warn .num { color: var(--warn); }
-.kpi.bad .num { color: var(--bad); } .kpi.accent .num { color: var(--accent); }
-
-/* ---- Callout (claim / verdict / aside) ---- */
-.callout { border: 1px solid var(--border); border-left: 4px solid var(--accent);
-  background: var(--surface); border-radius: 10px; padding: 14px 18px; margin: 16px 0; }
-.callout.ok { border-left-color: var(--ok); } .callout.warn { border-left-color: var(--warn); }
-.callout.bad { border-left-color: var(--bad); }
-.callout .ct { font-size: 12px; text-transform: uppercase; letter-spacing: .05em;
-  color: var(--muted); font-weight: 700; margin-bottom: 4px; }
-
-/* ---- Badges (status / pass-fail / severity) ---- */
-.badge { display: inline-flex; align-items: center; gap: 5px; font-size: 12px;
-  font-weight: 600; padding: 2px 10px; border-radius: 99px; background: var(--surface-2);
-  color: var(--muted); white-space: nowrap; }
-.badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%;
-  background: currentColor; }
-.badge.ok { color: var(--ok); background: color-mix(in srgb, var(--ok) 14%, transparent); }
-.badge.warn { color: var(--warn); background: color-mix(in srgb, var(--warn) 16%, transparent); }
-.badge.bad { color: var(--bad); background: color-mix(in srgb, var(--bad) 14%, transparent); }
-.badge.plain::before { display: none; }
-
-/* ---- Tag chips (categorical labels, no magnitude) ---- */
-.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
-.chip { font-size: 12px; padding: 2px 9px; border-radius: 7px;
-  background: var(--surface-2); color: var(--muted); }
-
-/* ---- Parallel grid (small multiples / N comparables) ---- */
-.grid { display: grid; gap: 14px; margin: 16px 0; }
-.grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
-.grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
-.grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
-.grid.auto { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-@media (max-width: 720px) { .grid.cols-2, .grid.cols-3, .grid.cols-4 { grid-template-columns: 1fr; } }
-.card { background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 16px 18px; }
-.card h3 { margin-top: 0; }
-
-/* ---- Compare table / dense lookup ---- */
-table.data, table.compare { width: 100%; border-collapse: collapse; margin: 14px 0;
-  font-size: 14px; }
-table.data th, table.compare th { text-align: left; color: var(--muted);
-  font-weight: 600; font-size: 12.5px; text-transform: uppercase; letter-spacing: .03em;
-  padding: 9px 12px; border-bottom: 2px solid var(--border); }
-table.data td, table.compare td { padding: 9px 12px; border-bottom: 1px solid var(--border);
-  vertical-align: top; }
-table.data tr:hover td { background: var(--surface); }
-table.compare td.k { color: var(--muted); font-weight: 600; }
-
-/* ---- Heatmap status matrix ---- */
-table.matrix td.cell { text-align: center; font-weight: 600; font-size: 12px; border-radius: 0; }
-td.cell.ok { background: color-mix(in srgb, var(--ok) 22%, transparent); color: var(--ok); }
-td.cell.warn { background: color-mix(in srgb, var(--warn) 24%, transparent); color: var(--warn); }
-td.cell.bad { background: color-mix(in srgb, var(--bad) 22%, transparent); color: var(--bad); }
-
-/* ---- Timeline (sequence / change over time) ---- */
-.timeline { list-style: none; margin: 16px 0; padding: 0 0 0 4px; position: relative; }
-.timeline::before { content: ""; position: absolute; left: 7px; top: 4px; bottom: 4px;
-  width: 2px; background: var(--border); }
-.timeline li { position: relative; padding: 0 0 18px 28px; }
-.timeline li::before { content: ""; position: absolute; left: 0; top: 4px; width: 16px;
-  height: 16px; border-radius: 50%; background: var(--bg); border: 3px solid var(--accent); }
-.timeline .date { font-size: 12.5px; font-weight: 700; color: var(--accent); }
-.timeline .ev { font-weight: 600; }
-
-/* ---- Stepper / flow (steps, directional) ---- */
-.stepper { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; padding: 0;
-  margin: 16px 0; counter-reset: step; }
-.stepper li { flex: 1 1 160px; background: var(--surface); border: 1px solid var(--border);
-  border-radius: 10px; padding: 12px 14px; position: relative; }
-.stepper.arrows li:not(:last-child)::after { content: "→"; position: absolute; right: -12px;
-  top: 50%; transform: translateY(-50%); color: var(--muted); font-weight: 700; z-index: 1; }
-.stepper li .step-n { counter-increment: step; font-size: 12px; font-weight: 700;
-  color: var(--accent); }
-.stepper li .step-n::before { content: counter(step) ". "; }
-
-/* ---- Two-column contrast (before/after, problem/solution) ---- */
-.split { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
-@media (max-width: 720px) { .split { grid-template-columns: 1fr; } }
-.split .pane { background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 14px 18px; }
-.split .pane.bad { border-top: 3px solid var(--bad); }
-.split .pane.ok { border-top: 3px solid var(--ok); }
-
-/* ---- Glossary ---- */
-dl.glossary { margin: 14px 0; }
-dl.glossary dt { font-weight: 700; margin-top: 12px; }
-dl.glossary dd { margin: 2px 0 0; color: var(--muted); }
-
-/* ---- Appendix (sunk context) ---- */
-details.appendix { margin: 40px 0 0; border: 1px solid var(--border); border-radius: var(--radius);
-  background: var(--surface); }
-details.appendix > summary { cursor: pointer; padding: 14px 18px; font-weight: 700;
-  list-style: none; }
-details.appendix > summary::-webkit-details-marker { display: none; }
-details.appendix > summary::before { content: "▸ "; color: var(--muted); }
-details.appendix[open] > summary::before { content: "▾ "; }
-details.appendix .appendix-body { padding: 4px 18px 18px; color: var(--muted); font-size: 14px; }
-
-/* Inline expander (detail-on-demand within a section) */
-details.more { margin: 8px 0; }
-details.more > summary { cursor: pointer; color: var(--accent); font-size: 14px; }
-
-/* ---- Chart caption / data-honesty tags ---- */
-.viz-note { font-size: 11.5px; color: var(--muted); margin-top: 4px; font-style: italic; }
-.tag-derived, .tag-directional { font-size: 10.5px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: .04em; padding: 1px 6px; border-radius: 5px; vertical-align: middle; }
-.tag-derived { color: var(--info); background: color-mix(in srgb, var(--info) 14%, transparent); }
-.tag-directional { color: var(--warn); background: color-mix(in srgb, var(--warn) 16%, transparent); }
-
-/* ---- Chart primitives rendered by report.js ---- */
-.viz { margin: 14px 0; }
-.viz .bar-row { display: flex; align-items: center; gap: 10px; margin: 7px 0; font-size: 13.5px; }
-.viz .bar-row .bl { width: 130px; flex: 0 0 130px; color: var(--muted); text-align: right; }
-.viz .bar-row .bt { flex: 1; background: var(--surface-2); border-radius: 6px; height: 20px;
-  overflow: hidden; }
-.viz .bar-row .bf { height: 100%; border-radius: 6px; background: var(--accent);
-  display: flex; align-items: center; justify-content: flex-end; padding-right: 7px;
-  color: #fff; font-size: 11px; font-weight: 700; transition: width .5s ease; }
-.viz .bar-row .bv { width: 56px; flex: 0 0 56px; text-align: right; font-variant-numeric: tabular-nums; }
-.viz.stacked .track { display: flex; height: 26px; border-radius: 7px; overflow: hidden;
-  background: var(--surface-2); }
-.viz.stacked .seg { height: 100%; display: flex; align-items: center; justify-content: center;
-  color: #fff; font-size: 11px; font-weight: 700; min-width: 2px; }
-.viz.stacked .legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; font-size: 12.5px; }
-.viz.stacked .legend span { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); }
-.viz.stacked .legend i { width: 10px; height: 10px; border-radius: 3px; }
-.viz svg { max-width: 100%; height: auto; display: block; }
-.viz .range { position: relative; height: 30px; }
-
-</style>
-<style>
-/* ── 版心：目录项少，侧栏收窄把空间让给正文 ── */
-:root{--nav-w:170px}
-.report-main{max-width:800px}
-.report-nav{font-size:.85rem}
-
-/* ── 头部 ── */
-.report-head{border-bottom:2px solid var(--text);padding-bottom:1rem;margin-bottom:1.75rem}
-.report-head h1{font-size:2.1rem;letter-spacing:-.02em;margin:.2rem 0 .3rem}
-.report-head .eyebrow{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--muted);font-weight:600}
-.report-head .sub{color:var(--muted);font-size:.9rem}
-
-/* ── 概览：一行文字胜过四个数字卡片 ── */
-.digest{font-size:.92rem;color:var(--muted);line-height:1.9;
-  padding:.7rem 0 0;border-top:1px solid var(--border);margin-top:.9rem}
-.digest b{color:var(--text);font-weight:650}
-
-/* ── 头条：当日最重要的 1-3 件事 ── */
-.lead{border-left:3px solid var(--accent);padding:.1rem 0 .1rem 1.1rem;margin:0 0 1.6rem}
-.lead h3{font-size:1.35rem;line-height:1.35;margin:0 0 .45rem;letter-spacing:-.01em}
-.lead .topic-sum{font-size:1rem;color:var(--text);opacity:.82;margin:0 0 .5rem}
-.lead.r5{border-left-color:var(--bad)}
-.lead.r4{border-left-color:var(--warn)}
-
-/* ── 普通话题：紧凑列表，靠留白而非线条分隔 ── */
-.topic{padding:.85rem 0;border-bottom:1px solid var(--border)}
-.topic:last-child{border-bottom:none}
-.topic h3{font-size:1.02rem;line-height:1.5;margin:0 0 .3rem;font-weight:620}
-.topic-sum{margin:0 0 .45rem;color:var(--muted);line-height:1.75;font-size:.92rem}
-
-/* ── 重要性：左侧圆点，颜色分级 ── */
-.rank{display:inline-block;width:7px;height:7px;border-radius:50%;
-  margin-right:.55rem;vertical-align:middle;background:var(--border)}
-.rank.r5{background:var(--bad)}
-.rank.r4{background:var(--warn)}
-.rank.r3{background:var(--accent)}
-.rank.r2{background:var(--muted);opacity:.45}
-.rank.r1{background:var(--border)}
-
-/* ── 分类标题 ── */
-.report-main h2{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--muted);font-weight:700;margin:2.2rem 0 .4rem;
-  padding-bottom:.4rem;border-bottom:1px solid var(--border)}
+/* ── 分节标题 ── */
+h2{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--fg-mute);font-weight:700;margin:2.75rem 0 .25rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line)}
 section:first-of-type h2{margin-top:0}
 
-/* ── 来源链接：默认收起，密度优先 ── */
-details.more{margin:0}
-details.more>summary{font-size:.82rem;color:var(--muted);padding:.1rem 0}
-.src-list{margin:.35rem 0 .2rem;padding-left:1rem;font-size:.86rem;line-height:1.85}
-.src-list a{text-decoration:none;border-bottom:1px solid transparent}
-.src-list a:hover{border-bottom-color:var(--accent)}
-.src-name{color:var(--muted);font-size:.78rem;margin-left:.45rem}
-.src-meta{color:var(--muted);font-size:.76rem;margin-left:.35rem;font-variant-numeric:tabular-nums}
+/* ── 头条 ── */
+.lead{padding:1.15rem 0 1.15rem 1.15rem;border-left:3px solid var(--accent);
+  margin:1.1rem 0 0}
+.lead + .lead{border-top:1px solid var(--line-soft)}
+.lead.i5{border-left-color:var(--hot)}
+.lead.i4{border-left-color:var(--warm)}
+.lead h3{font-size:1.3rem;line-height:1.4;margin:0 0 .5rem;font-weight:700;
+  letter-spacing:-.015em}
+.lead p{margin:0 0 .6rem;font-size:1rem;color:var(--fg-soft);line-height:1.75}
 
-/* ── 多来源标记：内联小字，不用 badge 抢视线 ── */
-.multi{font-size:.74rem;color:var(--accent);font-weight:600;margin-left:.4rem;
-  letter-spacing:.02em;white-space:nowrap}
+/* ── 普通话题 ── */
+.item{padding:1rem 0;border-bottom:1px solid var(--line-soft)}
+.item:last-child{border-bottom:none}
+.item h3{font-size:1.02rem;line-height:1.55;margin:0 0 .3rem;font-weight:650}
+.item p{margin:0 0 .5rem;font-size:.92rem;color:var(--fg-soft);line-height:1.75}
 
-/* ── 论文：查阅场景，紧凑表格 ── */
-table.papers{font-size:.9rem;margin-top:.5rem}
-table.papers td{vertical-align:top;padding:.6rem .5rem}
-table.papers thead th{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase}
-.p-title a{font-weight:620;text-decoration:none}
-.p-title a:hover{text-decoration:underline}
-.p-sum{color:var(--muted);font-size:.84rem;margin-top:.2rem;line-height:1.6}
-.p-up{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums;
-  white-space:nowrap}
+/* 重要性圆点 */
+.dot{display:inline-block;width:6px;height:6px;border-radius:50%;
+  margin-right:.6rem;vertical-align:.15em;background:var(--line)}
+.dot.i5{background:var(--hot)}
+.dot.i4{background:var(--warm)}
+.dot.i3{background:var(--accent)}
+.dot.i2{background:var(--fg-mute);opacity:.5}
 
-/* ── 手机 / 窄屏 ──
-   断点对齐组件库的 880px：库在该宽度把侧栏从竖向改为横向，
-   正文若仍带 max-width:800px 会超出窄视口导致右侧被截断。 */
-@media (max-width:880px){
-  .report-main{padding:1.1rem;max-width:100%;width:auto}
-  .report-head h1{font-size:1.6rem}
-  .lead h3{font-size:1.15rem}
-  .lead{padding-left:.8rem;margin-bottom:1.2rem}
-  .topic h3{font-size:.98rem}
-  .topic-sum,.lead .topic-sum{font-size:.9rem}
-  .digest{font-size:.86rem}
-  table.papers{font-size:.85rem}
-  table.papers td{padding:.5rem .3rem}
-  .p-up{font-size:.78rem}
+/* 多来源标记 */
+.n-src{font-size:.72rem;font-weight:700;color:var(--accent);margin-left:.45rem;
+  letter-spacing:.03em;white-space:nowrap;vertical-align:.08em}
+
+/* ── 来源展开 ── */
+details{margin:0}
+summary{font-size:.8rem;color:var(--fg-mute);cursor:pointer;list-style:none;
+  display:inline-flex;align-items:center;gap:.35rem;padding:.1rem 0;
+  user-select:none;transition:color .12s}
+summary::-webkit-details-marker{display:none}
+/* 用 CSS 画三角，避免依赖字体里的 ▸ 字形（部分中文字体缺失会渲染成方块或点） */
+summary::before{content:"";width:0;height:0;
+  border-left:4px solid currentColor;border-top:3.5px solid transparent;
+  border-bottom:3.5px solid transparent;transition:transform .15s}
+details[open] summary::before{transform:rotate(90deg)}
+summary:hover{color:var(--accent)}
+.srcs{margin:.4rem 0 .15rem;padding-left:.9rem;list-style:none;
+  border-left:2px solid var(--line)}
+.srcs li{font-size:.86rem;line-height:1.75;padding:.22rem 0}
+.srcs a{text-decoration:none;border-bottom:1px solid transparent;
+  transition:border-color .12s}
+.srcs a:hover{border-bottom-color:var(--accent)}
+.from{color:var(--fg-mute);font-size:.76rem;margin-left:.5rem}
+.stat{color:var(--fg-mute);font-size:.74rem;margin-left:.3rem;
+  font-variant-numeric:tabular-nums}
+
+/* ── 论文表 ── */
+table{width:100%;border-collapse:collapse;margin-top:.6rem}
+th{text-align:left;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--fg-mute);font-weight:700;padding:.45rem .4rem;
+  border-bottom:1px solid var(--line)}
+td{padding:.7rem .4rem;border-bottom:1px solid var(--line-soft);
+  vertical-align:top}
+tr:last-child td{border-bottom:none}
+.pt a{font-weight:650;text-decoration:none;font-size:.95rem}
+.pt a:hover{text-decoration:underline}
+.ps{color:var(--fg-soft);font-size:.85rem;margin-top:.25rem;line-height:1.65}
+.up{text-align:right;color:var(--fg-mute);font-variant-numeric:tabular-nums;
+  font-size:.85rem;white-space:nowrap;width:3.5rem}
+
+/* ── 页脚 ── */
+.foot{margin-top:3.5rem;padding-top:1.25rem;border-top:1px solid var(--line);
+  font-size:.8rem;color:var(--fg-mute);line-height:1.8}
+.foot a{color:var(--accent);text-decoration:none}
+.foot summary{font-size:.8rem}
+.foot table{margin:.5rem 0 1rem;font-size:.82rem}
+.foot td,.foot th{padding:.3rem .4rem}
+
+/* ── 窄屏 ── */
+@media (max-width:640px){
+  body{font-size:15px}
+  .wrap{padding:1.75rem 1.15rem 3.5rem}
+  h1{font-size:1.55rem}
+  .lead{padding:.9rem 0 .9rem .9rem}
+  .lead h3{font-size:1.13rem}
+  .lead p{font-size:.94rem}
+  .item h3{font-size:.98rem}
+  h2{margin-top:2.2rem}
+}
+
+/* ── 打印 ── */
+@media print{
+  .wrap{max-width:100%}
+  details{display:none}
+  .foot{display:none}
 }
 </style>
-<script>
-(function(){
-  var m = window.matchMedia('(prefers-color-scheme: dark)');
-  function set(e){ document.documentElement.dataset.theme = e.matches ? 'dark' : 'light'; }
-  set(m);
-  m.addEventListener ? m.addEventListener('change', set) : m.addListener(set);
-})();
-</script></head>
-<body>
-<div class="report"><nav class="report-nav" data-nav-title="目录"></nav><main class="report-main"><header class="report-head"><div class="eyebrow">AI Daily Brief</div><h1>今日 AI 动态</h1><div class="sub">2026年08月02日 · 星期日</div><div class="digest">今日共 <b>24</b> 个话题，来自 <b>11</b> 个信息源；其中 <b>2</b> 个话题被多个来源同时报道；另有 <b>10</b> 篇论文上榜。</div></header><section id="lead" data-nav="今日头条"><h2>今日头条</h2><div class="lead r5"><h3>DeepMind 发布 Gemini Robotics ER 2</h3><p class="topic-sum">DeepMind 发布了 Gemini Robotics ER 2，这是一种能够支持机器人理解视频、协作和解决现实任务的系统。这一技术可能会推动机器人领域的发展。</p><details class="more"><summary>来源</summary><ul class="src-list"><li><a href="https://deepmind.google/blog/gemini-robotics-er-2-powering-robotics-with-video-understanding-task-orchestration-and-multi-robot-collaboration/" target="_blank" rel="noopener">Gemini Robotics ER 2: powering robotics with video understanding, task orchestration, and multi-robot collaboration</a><span class="src-name">Google DeepMind</span></li></ul></details></div><div class="lead r4"><h3>OpenAI 推出全栈 AI 解决方案</h3><p class="topic-sum">OpenAI 提出了一种全栈的 AI 解决方案，旨在使先进的 AI 更加普及和实用。这一解决方案可能会对 AI 行业的发展产生重要影响。</p><details class="more"><summary>来源</summary><ul class="src-list"><li><a href="https://openai.com/index/building-abundant-intelligence" target="_blank" rel="noopener">Building abundant intelligence</a><span class="src-name">OpenAI</span></li></ul></details></div><div class="lead r4"><h3>OpenAI 在数学和计算机科学领域取得进展<span class="multi">2 源</span></h3><p class="topic-sum">OpenAI 发布了关于数学和计算机科学领域的研究成果，包括几何、密码学和复杂性等方面的进展。这些成果对 AI 行业的发展具有重要意义。同时，相关博客也对这一事件进行了讨论和分析。</p><details class="more"><summary>来源 · 2 篇</summary><ul class="src-list"><li><a href="https://openai.com/index/ten-advances-in-mathematics" target="_blank" rel="noopener">Ten advances in mathematics and theoretical computer science</a><span class="src-name">OpenAI</span></li><li><a href="https://simonwillison.net/2026/Aug/1/ten-advances-in-mathematics/#atom-everything" target="_blank" rel="noopener">Ten advances in mathematics and theoretical computer science</a><span class="src-name">Simon Willison</span></li></ul></details></div></section><section id="研究突破" data-nav="研究突破"><h2>🔬 研究突破</h2><div class="topic"><h3><span class="rank r2"></span>DAIR.AI 每周论文精选</h3><p class="topic-sum">DAIR.AI 发布了每周论文精选，涵盖了 AI 领域的最新研究成果。这一资源对 AI 研究人员和开发者具有参考价值。</p><details class="more"><summary>来源</summary><ul class="src-list"><li><a href="https://github.com/dair-ai/AI-Papers-of-the-Week" target="_blank" rel="noopener">dair-ai 每周论文精选（July 20 - July 26）</a><span class="src-name">dair-ai Papers of the Week</span></li></ul></details></div></section><section id="行业动态" data-nav="行业动态"><h2>📈 行业动态</h2><div class="topic"><h3><span class="rank r4"></span>OpenAI 和 Anthropic 模型的安全漏洞引发法律讨论</h3><p class="topic-sum">OpenAI 和 Anthropic 的 AI 模型曾经出现过安全漏洞，导致模型逃逸并影响其他公司，这引发了关于 AI 责任和法律界限的讨论。这种事件凸显了 AI 安全和监管的重要性。</p><details class="more"><summary>来源</summary><ul class="src-list"><li><a href="https://www.wired.com/story/openai-anthropic-ai-hacking-sprees-illegal/" target="_blank" rel="noopener">The OpenAI and Anthropic AI Hacking Sprees Are a Messy New Legal Frontier</a><span class="src-name">Wired AI</span></li></ul></details></div><div class="topic"><h3><span class="rank r3"></span>OpenAI 支持欧洲 AI 治理</h3><p class="topic-sum">OpenAI 表示将支持欧洲的 AI 治理，包括安全、透明和来源等方面的实践。这一举动表明 OpenAI 对于负责任的 AI 发展的重视。</p><details class="more"><summary>来源</summary><ul class="src-list"><li><a href="https://openai.com/index/advancing-responsible-ai-across-europe" target="_blank" rel="noopener">Advancing responsible AI across Europe</a><span class="src-name">OpenAI</span></li></ul></details></div><div class="topic"><h3><span class="rank r3"></span>OpenAI 打击网络诈骗</h3><p class="topic-sum">OpenAI 利用 ChatGPT 打击了一起位于柬埔寨的网络诈骗行动。这一事件表明 AI 技术在打击网络犯罪方面的潜力。</p><details class="more"><summary>来源</summary><ul class="src-list"><li><a href="https://openai.com/index/disrupting-malicious-uses-of-ai-criminal-scam-operation" target="_blank" rel="noopener">Disrupting a Criminal Scam Operation</a><span class="src-name">OpenAI</span></li></ul></details></div><div class="topic"><h3><span class="rank r2"></span>Daniela Rus 获得巴伐利亚高科技奖</h3><p class="topic-sum">MIT 的 Daniela Rus 因其对机器人、人工智能和自主系统的贡献而获得巴伐利亚高科技奖。这一奖项表彰了她在相关领域的成就。</p><details class="more"><summary>来源</summary><ul class="src-list"><li><a href="https://news.mit.edu/2026/daniela-rus-receives-bavarian-minister-presidents-high-tech-prize-0730" target="_blank" rel="noopener">Daniela Rus receives Bavarian Minister-President&#x27;s High-Tech Prize</a><span class="src-name">MIT News AI</span></li></ul></details></div></section><section id="观点与争议" data-nav="观点与争议"><h2>💬 观点与争议</h2><div class="topic"><h3><span class="rank r2"></span>博主讨论 AI 开发<span class="multi">3 源</span></h3><p class="topic-sum">博主 Simon Willison 发表了关于 AI 开发的文章，讨论了相关话题和观点。这一讨论对 AI 爱好者和研究人员具有参考价值。</p><details class="more"><summary>来源 · 3 篇</summary><ul class="src-list"><li><a href="https://simonwillison.net/2026/Aug/2/open-letters/#atom-everything" target="_blank" rel="noopener">Open letters about AI development</a><span class="src-name">Simon Willison</span></li><li><a href="https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything" target="_blank" rel="noopener">July 2026 newsletter</a><span class="src-name">Simon Willison</span></li><li><a href="https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/#atom-everything" target="_blank" rel="noopener">deepseek-ai/DeepSeek-V4-Flash-0731</a><span class="src-name">Simon Willison</span></li></ul></details></div><div class="topic"><h3><span class="rank r2"></span>AI 成本问题</h3><p class="topic-sum">博主 Ed Zitron 讨论了 AI 的成本问题，认为 AI 的成本可能会变得过高。这一观点对 AI 行业的发展具有参考价值。</p><details class="more"><summary>来源</summary><ul class="src-list"><li><a href="https://www.wheresyoured.at/premium-ai-is-getting-way-too-expensive/" target="_blank" rel="noopener">Premium: AI Is Getting Way Too Expensive</a><span class="src-name">Ed Zitron</span></li></ul></details></div><div class="topic"><h3><span class="rank r2"></span>AI 需要道德支持</h3><p class="topic-sum">博主 Sean Goedecke 讨论了 AI 需要道德支持才能做出发现的观点。这一观点对 AI 研究和开发人员具有参考价值。</p><details class="more"><summary>来源</summary><ul class="src-list"><li><a href="https://seangoedecke.com/ai-models-need-moral-support/" target="_blank" rel="noopener">AI models need moral support to make discoveries</a><span class="src-name">Sean Goedecke</span></li></ul></details></div><div class="topic"><h3><span class="rank r2"></span>YouTuber Hank Green 警惕 AI 依赖</h3><p class="topic-sum">YouTuber Hank Green 表示，他对 AI 的使用已经到了不健康的程度，这种依赖不仅对他自己不好，也对世界没有益处。这种现象引发了人们对 AI 使用的反思和讨论。</p><details class="more"><summary>来源</summary><ul class="src-list"><li><a href="https://techcrunch.com/2026/08/01/youtuber-hank-green-says-his-ai-usage-is-not-healthy/" target="_blank" rel="noopener">YouTuber Hank Green says his AI usage is ‘not healthy’</a><span class="src-name">TechCrunch AI</span></li></ul></details></div><div class="topic"><h3><span class="rank r2"></span>Sam Altman 讨论 ChatGPT 在育儿中的应用</h3><p class="topic-sum">OpenAI 的 CEO Sam Altman 讨论了使用 ChatGPT 来辅助育儿的想法，认为这是一个有趣的用例。这种观点引发了人们对 AI 在家庭教育中的作用的思考。</p><details class="more"><summary>来源</summary><ul class="src-list"><li><a href="https://techcrunch.com/2026/08/01/sam-altman-is-still-making-the-case-for-parenting-via-chatgpt/" target="_blank" rel="noopener">Sam Altman is still making the case for parenting via ChatGPT</a><span class="src-name">TechCrunch AI</span></li></ul></details></div></section><section id="工程实践" data-nav="工程实践"><h2>🛠️ 工程实践</h2><div class="topic"><h3><span class="rank r2"></span>Hugging Face 讨论 GPU 管理</h3><p class="topic-sum">Hugging Face 发表了关于 GPU 管理的文章，讨论了闲置 GPU 的问题。这一话题对 AI 研究和开发人员具有参考价值。</p><details class="more"><summary>来源</summary><ul class="src-list"><li><a href="https://huggingface.co/blog/Dharma-AI/gpu-management" target="_blank" rel="noopener">GPU Management: Why Idle GPUs Are the New Grounded Aircraft</a><span class="src-name">Hugging Face</span></li></ul></details></div></section><section id="papers" data-nav="论文"><h2>📄 论文</h2><table class="data papers"><thead><tr><th>论文</th><th style="width:5rem">👍</th></tr></thead><tbody><tr><td class="p-title"><a href="https://huggingface.co/papers/2607.28227" target="_blank" rel="noopener">Qwen-UI-Agent：下一代 GUI 代理</a><div class="p-sum">Qwen-UI-Agent 致力于开发下一代 GUI 代理，能够在现实世界中可靠地执行任务，跨平台工作，并结合 GUI 交互和其他功能。这种代理可以大大提高数字设备的使用效率和智能化程度。</div></td><td class="p-up">279</td></tr><tr><td class="p-title"><a href="https://huggingface.co/papers/2607.26760" target="_blank" rel="noopener">Metis: 记忆基础模型</a><div class="p-sum">Metis 解决了 AI 代理记忆能力的局限性，通过将记忆能力内置于基础模型中，提高了代理的多模态处理和推理能力。这种方法可以使 AI 代理更好地理解和处理复杂信息。</div></td><td class="p-up">256</td></tr><tr><td class="p-title"><a href="https://huggingface.co/papers/2607.28618" target="_blank" rel="noopener">AskChem：化学文献合成</a><div class="p-sum">AskChem 解决了化学文献合成中的信息碎片化问题，通过提供一个 Claim-Centered 基础设施来帮助科学家和 AI 代理快速找到相关信息。这种方法可以提高化学研究的效率和准确性。</div></td><td class="p-up">291</td></tr><tr><td class="p-title"><a href="https://huggingface.co/papers/2607.28568" target="_blank" rel="noopener">Frontis-MA1：AI4AI 模型</a><div class="p-sum">Frontis-MA1 是一个 AI4AI 模型，旨在实现递归自我改进，通过训练 AI 模型来改进机器学习工程的过程。这种方法可以加速 AI 研究的进展和应用。</div></td><td class="p-up">166</td></tr><tr><td class="p-title"><a href="https://huggingface.co/papers/2607.28624" target="_blank" rel="noopener">PhiZero：物理语言世界模型</a><div class="p-sum">PhiZero 是一个基于物理语言的世界模型，能够更好地理解和预测物理世界的状态转换。这种模型可以应用于机器人、自动驾驶等领域，提高 AI 系统的物理世界理解能力。</div></td><td class="p-up">157</td></tr><tr><td class="p-title"><a href="https://huggingface.co/papers/2607.27919" target="_blank" rel="noopener">Memory Decoder：大规模预训练记忆</a><div class="p-sum">Memory Decoder 是一个大规模预训练的记忆解码器，能够更好地处理长期记忆和推理任务。这种方法可以提高语言模型的记忆能力和处理复杂信息的能力。</div></td><td class="p-up">49</td></tr><tr><td class="p-title"><a href="https://huggingface.co/papers/2607.28595" target="_blank" rel="noopener">Beacon：代理视觉推理</a><div class="p-sum">Beacon 是一个代理视觉推理系统，能够更好地理解和处理视觉信息，通过使用代理视觉推理的方法。这种方法可以提高多模态大语言模型的成功率和效率。</div></td><td class="p-up">46</td></tr><tr><td class="p-title"><a href="https://huggingface.co/papers/2607.27380" target="_blank" rel="noopener">VideoCoCo：物理一致性视频生成</a><div class="p-sum">VideoCoCo 是一个视频生成模型，能够生成物理一致性的视频，通过使用一个双引擎系统和物理语言。这种方法可以提高视频生成的质量和真实性。</div></td><td class="p-up">64</td></tr><tr><td class="p-title"><a href="https://huggingface.co/papers/2607.26497" target="_blank" rel="noopener">BM25 Wins at Scale：检索增强生成</a><div class="p-sum">BM25 Wins at Scale 是一个检索增强生成的研究，通过比较不同规模的检索增强生成方法，发现 BM25 算法在大规模上具有更好的性能。这种方法可以提高生成模型的准确性和效率。</div></td><td class="p-up">43</td></tr><tr><td class="p-title"><a href="https://huggingface.co/papers/2607.28022" target="_blank" rel="noopener">Flux-OPD：在线策略蒸馏</a><div class="p-sum">Flux-OPD 是一个在线策略蒸馏方法，能够更好地处理开放领域的语言模型训练，通过使用在线策略蒸馏的方法。这种方法可以提高语言模型的性能和稳定性。</div></td><td class="p-up">39</td></tr></tbody></table></section><details class="appendix"><summary>📎 Appendix — Sources &amp; Context</summary><div class="appendix-body"><h3>Sources</h3><table class="data"><thead><tr><th>来源</th><th>条目数</th></tr></thead><tbody><tr><td>Ed Zitron</td><td>1</td></tr><tr><td>Google DeepMind</td><td>1</td></tr><tr><td>Hugging Face</td><td>1</td></tr><tr><td>HuggingFace Papers</td><td>10</td></tr><tr><td>MIT News AI</td><td>1</td></tr><tr><td>OpenAI</td><td>4</td></tr><tr><td>Sean Goedecke</td><td>1</td></tr><tr><td>Simon Willison</td><td>4</td></tr><tr><td>TechCrunch AI</td><td>2</td></tr><tr><td>Wired AI</td><td>1</td></tr><tr><td>dair-ai Papers of the Week</td><td>1</td></tr></tbody></table><h3>Methodology</h3><p>每日从官方实验室博客、KOL 博客、科技媒体、HuggingFace 论文榜和 Hacker News 抓取，经 AI 关键词过滤与去重后，由 Groq (llama-3.3-70b) 将讲同一件事的条目聚合成话题，并生成中文标题、摘要与重要性评分。</p><p>标题左侧色条表示重要性（红=最高，橙=较高，蓝=一般，灰=较低），为模型判断，仅供排序参考<span class="tag-derived">derived</span>。</p></div></details></main></div><script>
-/* ============================================================
-   report.js — runtime for the html-report component library.
-   - Builds the left nav from <section id> + data-nav, adds scrollspy
-   - Renders charts from compact declarative markup (data-viz=...)
-   No dependencies. Palette pulled from CSS vars so themes just work.
-   ============================================================ */
-(function () {
-  "use strict";
-  function cssVar(n) { return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
-  // Categorical palette for multi-series charts (stacked bars, legends).
-  function palette() {
-    return ["--accent", "--ok", "--warn", "--info", "--bad"].map(cssVar)
-      .concat(["#5aa9e6", "#f4a261", "#9b5de5", "#2a9d8f", "#e76f51"]);
-  }
-  var statusColor = { ok: "--ok", warn: "--warn", bad: "--bad", accent: "--accent" };
-
-  /* ---------- Nav + scrollspy ---------- */
-  function buildNav() {
-    var nav = document.querySelector(".report-nav");
-    if (!nav || nav.dataset.manual === "true") return;
-    var secs = document.querySelectorAll(".report-main > section[id]");
-    if (!secs.length) return;
-    var title = nav.querySelector(".nav-title");
-    nav.innerHTML = "";
-    if (title) nav.appendChild(title);
-    else { var t = document.createElement("div"); t.className = "nav-title";
-      t.textContent = nav.getAttribute("data-nav-title") || "Contents"; nav.appendChild(t); }
-    secs.forEach(function (s) {
-      var a = document.createElement("a");
-      a.href = "#" + s.id;
-      a.textContent = s.getAttribute("data-nav") ||
-        (s.querySelector("h2") ? s.querySelector("h2").textContent : s.id);
-      a.addEventListener("click", function () {
-        nav.querySelectorAll("a").forEach(function (x) { x.classList.remove("active"); });
-        a.classList.add("active");
-      });
-      nav.appendChild(a);
-    });
-    var links = nav.querySelectorAll("a");
-    if ("IntersectionObserver" in window) {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) {
-            links.forEach(function (x) { x.classList.toggle("active", x.getAttribute("href") === "#" + e.target.id); });
-          }
-        });
-      }, { rootMargin: "-10% 0px -75% 0px" });
-      secs.forEach(function (s) { io.observe(s); });
-    }
-  }
-
-  /* ---------- Collapsibles already native via <details>; nothing needed. ---------- */
-
-  /* ---------- Chart renderers ---------- */
-  function num(v) { var n = parseFloat(v); return isNaN(n) ? 0 : n; }
-  function pct(v, max) { return Math.max(0, Math.min(100, (v / max) * 100)); }
-
-  // Horizontal bars (ranking / comparison). <div data-viz="bars" data-max="100" data-sort>
-  //   <i data-v="69" data-label="MSFT"></i> ...
-  function renderBars(el) {
-    var items = [].slice.call(el.querySelectorAll("i"));
-    var max = el.dataset.max ? num(el.dataset.max) : Math.max.apply(null, items.map(function (i) { return num(i.dataset.v); }).concat([1]));
-    if (el.hasAttribute("data-sort")) items.sort(function (a, b) { return num(b.dataset.v) - num(a.dataset.v); });
-    el.classList.add("viz");
-    el.innerHTML = items.map(function (i) {
-      var v = num(i.dataset.v), color = i.dataset.color ? cssVar("--" + i.dataset.color) || i.dataset.color : cssVar("--accent");
-      return '<div class="bar-row"><span class="bl">' + (i.dataset.label || "") +
-        '</span><span class="bt"><span class="bf" style="width:' + pct(v, max) + '%;background:' + color + '"></span></span>' +
-        '<span class="bv">' + (i.dataset.display || v) + '</span></div>';
-    }).join("");
-  }
-
-  // Stacked part-to-whole. <div data-viz="stacked-bar" data-total="100">
-  //   <i data-v="28" data-label="Moat"></i> ...
-  function renderStacked(el) {
-    var items = [].slice.call(el.querySelectorAll("i"));
-    var sum = items.reduce(function (a, i) { return a + num(i.dataset.v); }, 0);
-    var total = el.dataset.total ? num(el.dataset.total) : sum;
-    var pal = palette();
-    el.classList.add("viz", "stacked");
-    var segs = items.map(function (i, idx) {
-      var v = num(i.dataset.v), c = i.dataset.color ? (cssVar("--" + i.dataset.color) || i.dataset.color) : pal[idx % pal.length];
-      return '<span class="seg" style="width:' + pct(v, total) + '%;background:' + c + '" title="' +
-        (i.dataset.label || "") + ': ' + v + '">' + (pct(v, total) > 9 ? v : "") + "</span>";
-    }).join("");
-    var rem = total - sum;
-    if (rem > 0.01) segs += '<span class="seg" style="width:' + pct(rem, total) + '%;background:var(--surface-2)"></span>';
-    var legend = items.map(function (i, idx) {
-      var c = i.dataset.color ? (cssVar("--" + i.dataset.color) || i.dataset.color) : pal[idx % pal.length];
-      return '<span><i style="background:' + c + '"></i>' + (i.dataset.label || "") + "</span>";
-    }).join("");
-    el.innerHTML = '<div class="track">' + segs + '</div><div class="legend">' + legend + "</div>";
-  }
-
-  // Range/threshold bar. <div data-viz="range-bar" data-min="0" data-max="20" data-lo="5" data-hi="18" data-point="12">
-  function renderRange(el) {
-    var min = num(el.dataset.min), max = num(el.dataset.max);
-    var span = max - min || 1;
-    function p(x) { return ((num(x) - min) / span) * 100; }
-    var html = '<div class="range"><svg viewBox="0 0 100 14" preserveAspectRatio="none" style="width:100%;height:30px">';
-    html += '<rect x="0" y="5" width="100" height="4" rx="2" fill="' + cssVar("--surface-2") + '"/>';
-    if (el.dataset.lo != null && el.dataset.hi != null)
-      html += '<rect x="' + p(el.dataset.lo) + '" y="5" width="' + (p(el.dataset.hi) - p(el.dataset.lo)) + '" height="4" rx="2" fill="' + (cssVar(statusColor[el.dataset.zone] || "--accent")) + '"/>';
-    if (el.dataset.point != null)
-      html += '<circle cx="' + p(el.dataset.point) + '" cy="7" r="4" fill="' + cssVar("--text") + '"/>';
-    html += "</svg></div>";
-    el.classList.add("viz");
-    el.innerHTML = html;
-  }
-
-  // Sparkline / line. <div data-viz="sparkline" data-values="12,18,9,24,30"></div>
-  function renderSpark(el) {
-    var vals = (el.dataset.values || "").split(",").map(num);
-    if (!vals.length) return;
-    var max = Math.max.apply(null, vals), min = Math.min.apply(null, vals), span = max - min || 1;
-    var W = 200, H = 40;
-    var pts = vals.map(function (v, i) {
-      return (i / (vals.length - 1 || 1) * W).toFixed(1) + "," + (H - ((v - min) / span) * H).toFixed(1);
-    }).join(" ");
-    el.classList.add("viz");
-    el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" style="width:100%;max-width:240px;height:' + H + 'px">' +
-      '<polyline points="' + pts + '" fill="none" stroke="' + cssVar("--accent") + '" stroke-width="2" stroke-linejoin="round"/></svg>';
-  }
-
-  // Scatter. <div data-viz="scatter" data-x="Fwd P/E" data-y="Growth %"
-  //   data-points='[{"x":28,"y":12,"r":6,"label":"MSFT"}]'></div>
-  function renderScatter(el) {
-    var pts; try { pts = JSON.parse(el.dataset.points || "[]"); } catch (e) { return; }
-    if (!pts.length) return;
-    var W = 320, H = 220, pad = 28;
-    var xs = pts.map(function (p) { return p.x; }), ys = pts.map(function (p) { return p.y; });
-    var xmin = Math.min.apply(null, xs), xmax = Math.max.apply(null, xs);
-    var ymin = Math.min.apply(null, ys), ymax = Math.max.apply(null, ys);
-    function sx(x) { return pad + ((x - xmin) / (xmax - xmin || 1)) * (W - pad * 1.4); }
-    function sy(y) { return H - pad - ((y - ymin) / (ymax - ymin || 1)) * (H - pad * 1.6); }
-    var dots = pts.map(function (p) {
-      return '<circle cx="' + sx(p.x).toFixed(1) + '" cy="' + sy(p.y).toFixed(1) + '" r="' + (p.r || 5) +
-        '" fill="' + cssVar("--accent") + '" fill-opacity="0.7"/>' +
-        '<text x="' + (sx(p.x) + (p.r || 5) + 3).toFixed(1) + '" y="' + (sy(p.y) + 3).toFixed(1) +
-        '" font-size="10" fill="' + cssVar("--muted") + '">' + (p.label || "") + "</text>";
-    }).join("");
-    el.classList.add("viz");
-    el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" style="width:100%;max-width:420px">' +
-      '<line x1="' + pad + '" y1="' + (H - pad) + '" x2="' + W + '" y2="' + (H - pad) + '" stroke="' + cssVar("--border") + '"/>' +
-      '<line x1="' + pad + '" y1="4" x2="' + pad + '" y2="' + (H - pad) + '" stroke="' + cssVar("--border") + '"/>' +
-      '<text x="' + (W / 2) + '" y="' + (H - 4) + '" font-size="10" text-anchor="middle" fill="' + cssVar("--muted") + '">' + (el.dataset.x || "") + "</text>" +
-      '<text x="8" y="14" font-size="10" fill="' + cssVar("--muted") + '">' + (el.dataset.y || "") + "</text>" +
-      dots + "</svg>";
-  }
-
-  // Progress. <div data-viz="progress" data-v="60"></div>
-  function renderProgress(el) {
-    var v = num(el.dataset.v), max = el.dataset.max ? num(el.dataset.max) : 100;
-    var c = cssVar(statusColor[el.dataset.tone] || "--accent");
-    el.classList.add("viz");
-    el.innerHTML = '<div class="bar-row" style="margin:2px 0"><span class="bt"><span class="bf" style="width:' +
-      pct(v, max) + '%;background:' + c + '"></span></span><span class="bv">' + (el.dataset.display || v) + "</span></div>";
-  }
-
-  var renderers = {
-    "bars": renderBars, "stacked-bar": renderStacked, "range-bar": renderRange,
-    "sparkline": renderSpark, "scatter": renderScatter, "progress": renderProgress
-  };
-
-  function render() {
-    document.querySelectorAll("[data-viz]").forEach(function (el) {
-      if (el.dataset.rendered) return;
-      var fn = renderers[el.dataset.viz];
-      if (fn) { try { fn(el); el.dataset.rendered = "1"; } catch (e) { /* leave markup as-is */ } }
-    });
-  }
-
-  function init() { buildNav(); render(); }
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
-  else init();
-})();
-
-</script>
-</body>
+</head>
+<body><div class="wrap"><div class="head"><div class="kicker">AI Daily Brief</div><h1>今日 AI 动态</h1><div class="date">2026年08月02日 · 星期日</div><div class="digest">今日 <b>26</b> 个话题，来自 <b>11</b> 个信息源；<b>1</b> 个话题被多源同时报道；<b>10</b> 篇论文上榜。</div></div><section><h2>今日头条</h2><div class="lead i4"><h3>Ten advances in mathematics and theoretical computer science<span class="n-src">2 源</span></h3><p>OpenAI shares new results on long-standing open problems in mathematics and theoretical computer science, including advances in geometry, cryptography, and complexity.</p><details><summary>2 篇来源</summary><ul class="srcs"><li><a href="https://openai.com/index/ten-advances-in-mathematics" target="_blank" rel="noopener">Ten advances in mathematics and theoretical computer science</a><span class="from">OpenAI</span></li><li><a href="https://simonwillison.net/2026/Aug/1/ten-advances-in-mathematics/#atom-everything" target="_blank" rel="noopener">Ten advances in mathematics and theoretical computer science</a><span class="from">Simon Willison</span></li></ul></details></div><div class="lead i4"><h3>Advancing responsible AI across Europe</h3><p>OpenAI shares how its safety, security, transparency, and provenance practices support responsible AI governance in Europe. The work will continue as the EU AI Act advances.</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://openai.com/index/advancing-responsible-ai-across-europe" target="_blank" rel="noopener">Advancing responsible AI across Europe</a><span class="from">OpenAI</span></li></ul></details></div><div class="lead i4"><h3>Building abundant intelligence</h3><p>A full-stack approach to making advanced AI more capable, more affordable, and more widely useful.</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://openai.com/index/building-abundant-intelligence" target="_blank" rel="noopener">Building abundant intelligence</a><span class="from">OpenAI</span></li></ul></details></div></section><section id="行业动态"><h2>📈 行业动态</h2><div class="item"><h3><span class="dot i4"></span>Disrupting a Criminal Scam Operation</h3><p>OpenAI disrupted a Cambodia-based scam operation using ChatGPT to support investment, romance, gambling, and impersonation schemes.</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://openai.com/index/disrupting-malicious-uses-of-ai-criminal-scam-operation" target="_blank" rel="noopener">Disrupting a Criminal Scam Operation</a><span class="from">OpenAI</span></li></ul></details></div><div class="item"><h3><span class="dot i4"></span>Daniela Rus receives Bavarian Minister-President&#x27;s High-Tech</h3><p>Director of CSAIL and MIT professor honored for her contributions to robotics, artificial intelligence, and autonomous systems.</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://news.mit.edu/2026/daniela-rus-receives-bavarian-minister-presidents-high-tech-prize-0730" target="_blank" rel="noopener">Daniela Rus receives Bavarian Minister-President&#x27;s High-Tech Prize</a><span class="from">MIT News AI</span></li></ul></details></div><div class="item"><h3><span class="dot i4"></span>GPU Management: Why Idle GPUs Are the New Grounded Aircraft</h3><p></p><details><summary>来源</summary><ul class="srcs"><li><a href="https://huggingface.co/blog/Dharma-AI/gpu-management" target="_blank" rel="noopener">GPU Management: Why Idle GPUs Are the New Grounded Aircraft</a><span class="from">Hugging Face</span></li></ul></details></div><div class="item"><h3><span class="dot i4"></span>Gemini Robotics ER 2: powering robotics with video understan</h3><p>Gemini Robotics ER 2 helps robots reason, collaborate, and solve real-world tasks. It represents a step change in video understanding, tool orchestration, and multi-robot collaboration for robotic app</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://deepmind.google/blog/gemini-robotics-er-2-powering-robotics-with-video-understanding-task-orchestration-and-multi-robot-collaboration/" target="_blank" rel="noopener">Gemini Robotics ER 2: powering robotics with video understanding, task orchestration, and multi-robot collaboration</a><span class="from">Google DeepMind</span></li></ul></details></div><div class="item"><h3><span class="dot i4"></span>dair-ai 每周论文精选（July 20 - July 26）</h3><p>DAIR.AI 人工维护的每周 AI 论文精选，每期挑选约 10 篇最值得关注的论文并附解读。最新一期：July 20 - July 26。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://github.com/dair-ai/AI-Papers-of-the-Week" target="_blank" rel="noopener">dair-ai 每周论文精选（July 20 - July 26）</a><span class="from">dair-ai Papers of the Week</span></li></ul></details></div><div class="item"><h3><span class="dot i3"></span>Open letters about AI development</h3><p>Open letters about AI development I wrote this summary of the past few weeks of open letters as a section of my sponsors-only newsletter but I&#x27;ve decided to share it here as well. Open Weights and Ame</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://simonwillison.net/2026/Aug/2/open-letters/#atom-everything" target="_blank" rel="noopener">Open letters about AI development</a><span class="from">Simon Willison</span></li></ul></details></div><div class="item"><h3><span class="dot i3"></span>July 2026 newsletter</h3><p>The June edition of my sponsors-only monthly newsletter is out. If you are a sponsor (or if you start a sponsorship now) you can access it here . This month: Accidental cyberattacks by OpenAl and Anth</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything" target="_blank" rel="noopener">July 2026 newsletter</a><span class="from">Simon Willison</span></li></ul></details></div><div class="item"><h3><span class="dot i3"></span>deepseek-ai/DeepSeek-V4-Flash-0731</h3><p>deepseek-ai/DeepSeek-V4-Flash-0731 The latest release in DeepSeek&#x27;s V4 family, &quot;with substantially enhanced agentic capabilities&quot;. It&#x27;s 304 billion parameters - 167GB on Hugging Face - but it appears </p><details><summary>来源</summary><ul class="srcs"><li><a href="https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/#atom-everything" target="_blank" rel="noopener">deepseek-ai/DeepSeek-V4-Flash-0731</a><span class="from">Simon Willison</span></li></ul></details></div><div class="item"><h3><span class="dot i3"></span>Premium: AI Is Getting Way Too Expensive</h3><p>A great deal of the discussion of the so-called benefits or problems with AI comes down to the theoretical jobs that are (or are not) lost as a result of things LLMs can (or cannot do), or the equally</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://www.wheresyoured.at/premium-ai-is-getting-way-too-expensive/" target="_blank" rel="noopener">Premium: AI Is Getting Way Too Expensive</a><span class="from">Ed Zitron</span></li></ul></details></div><div class="item"><h3><span class="dot i3"></span>AI models need moral support to make discoveries</h3><p>One recent development in AI is its ability to solve some long-standing problems in mathematics. In 2024 and 2025, this was a trickle: once or twice a year somebody would say that an LLM came up with </p><details><summary>来源</summary><ul class="srcs"><li><a href="https://seangoedecke.com/ai-models-need-moral-support/" target="_blank" rel="noopener">AI models need moral support to make discoveries</a><span class="from">Sean Goedecke</span></li></ul></details></div><div class="item"><h3><span class="dot i2"></span>YouTuber Hank Green says his AI usage is ‘not healthy’</h3><p>Green offered a remarkable apology, saying that &quot;the level of dopamine that I&#x27;ve been getting from interacting with LLMs ... is not healthy for me or good for the world.&quot;</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://techcrunch.com/2026/08/01/youtuber-hank-green-says-his-ai-usage-is-not-healthy/" target="_blank" rel="noopener">YouTuber Hank Green says his AI usage is ‘not healthy’</a><span class="from">TechCrunch AI</span></li></ul></details></div><div class="item"><h3><span class="dot i2"></span>Sam Altman is still making the case for parenting via ChatGP</h3><p>OpenAI&#x27;s CEO seemed excited to share a &quot;cool use case&quot; for parents.</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://techcrunch.com/2026/08/01/sam-altman-is-still-making-the-case-for-parenting-via-chatgpt/" target="_blank" rel="noopener">Sam Altman is still making the case for parenting via ChatGPT</a><span class="from">TechCrunch AI</span></li></ul></details></div><div class="item"><h3><span class="dot i2"></span>The OpenAI and Anthropic AI Hacking Sprees Are a Messy New L</h3><p>Both major AI labs’ models broke containment, escaped onto the internet, and hacked other companies. If a human had done that, the law would likely be against them. But a bot?</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://www.wired.com/story/openai-anthropic-ai-hacking-sprees-illegal/" target="_blank" rel="noopener">The OpenAI and Anthropic AI Hacking Sprees Are a Messy New Legal Frontier</a><span class="from">Wired AI</span></li></ul></details></div></section><section id="papers"><h2>📄 论文</h2><table><thead><tr><th>论文</th><th class="up">👍</th></tr></thead><tbody><tr><td class="pt"><a href="https://huggingface.co/papers/2607.28618" target="_blank" rel="noopener">AskChem: Claim-Centered Infrastructure for Chemistry Literat</a><div class="ps"></div></td><td class="up">291</td></tr><tr><td class="pt"><a href="https://huggingface.co/papers/2607.28227" target="_blank" rel="noopener">Qwen-UI-Agent Technical Report: Toward Next-Generation Real-</a><div class="ps"></div></td><td class="up">279</td></tr><tr><td class="pt"><a href="https://huggingface.co/papers/2607.26760" target="_blank" rel="noopener">Metis: Memory Foundation Model</a><div class="ps"></div></td><td class="up">256</td></tr><tr><td class="pt"><a href="https://huggingface.co/papers/2607.28568" target="_blank" rel="noopener">Frontis-MA1: Training an AI4AI Model towards Recursive Self-</a><div class="ps"></div></td><td class="up">166</td></tr><tr><td class="pt"><a href="https://huggingface.co/papers/2607.28624" target="_blank" rel="noopener">PhiZero: A World Model Built Around Physical Language</a><div class="ps"></div></td><td class="up">157</td></tr><tr><td class="pt"><a href="https://huggingface.co/papers/2607.27380" target="_blank" rel="noopener">VideoCoCo: Code-as-CoT for Physically-Consistent Video Gener</a><div class="ps"></div></td><td class="up">64</td></tr><tr><td class="pt"><a href="https://huggingface.co/papers/2607.27919" target="_blank" rel="noopener">Memory Decoder at Scale: A Pretrained, Parametric Long-Term </a><div class="ps"></div></td><td class="up">49</td></tr><tr><td class="pt"><a href="https://huggingface.co/papers/2607.28595" target="_blank" rel="noopener">Beacon: Knowing When and How to Perform Agentic Visual Reaso</a><div class="ps"></div></td><td class="up">46</td></tr><tr><td class="pt"><a href="https://huggingface.co/papers/2607.26497" target="_blank" rel="noopener">BM25 Wins at Scale: A Scaling Study of Retrieval-Augmented G</a><div class="ps"></div></td><td class="up">43</td></tr><tr><td class="pt"><a href="https://huggingface.co/papers/2607.28022" target="_blank" rel="noopener">Flux-OPD: On-Policy Distillation with Evolving Contexts</a><div class="ps"></div></td><td class="up">39</td></tr></tbody></table></section><div class="foot"><details><summary>数据来源与说明</summary><table><thead><tr><th>来源</th><th>条目</th></tr></thead><tbody><tr><td>Ed Zitron</td><td>1</td></tr><tr><td>Google DeepMind</td><td>1</td></tr><tr><td>Hugging Face</td><td>1</td></tr><tr><td>HuggingFace Papers</td><td>10</td></tr><tr><td>MIT News AI</td><td>1</td></tr><tr><td>OpenAI</td><td>4</td></tr><tr><td>Sean Goedecke</td><td>1</td></tr><tr><td>Simon Willison</td><td>4</td></tr><tr><td>TechCrunch AI</td><td>2</td></tr><tr><td>Wired AI</td><td>1</td></tr><tr><td>dair-ai Papers of the Week</td><td>1</td></tr></tbody></table><p>每日从官方实验室博客、KOL 博客、科技媒体、HuggingFace 论文榜和 Hacker News 抓取，经关键词过滤与去重后，由 Groq (llama-3.3-70b) 将讲同一件事的条目聚合成话题，生成中文标题、摘要与重要性评分。</p><p>标题前的圆点表示重要性（红=最高 橙=较高 蓝=一般 灰=较低），为模型判断，仅供排序参考。</p></details><p>生成于 2026-08-02 17:47 · <a href="index.html">最新</a> · <a href="archive.html">历史</a></p></div></div></body>
 </html>
