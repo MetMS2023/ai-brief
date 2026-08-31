@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="AI 行业每日动态 · 2026-08-31">
+<meta property="og:title" content="今日 AI 动态 · 2026年08月31日">
+<meta property="og:description" content="25 个话题，来自 13 个信息源">
+<meta property="og:type" content="article">
+<title>AI 日报 · 2026-08-31</title>
+<style>
+:root{
+  --bg:#f5f7fa; --card:#fff; --fg:#131720; --soft:#4d5768; --mute:#8b95a6;
+  --line:#e4e8ef; --hair:#eef1f6;
+  --accent:#3355ee; --hot:#e0455e; --warm:#ee8c2b; --ok:#12a374;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB",
+         "Microsoft YaHei",system-ui,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --r:10px;
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg:#0a0c10; --card:#141821; --fg:#e9ecf2; --soft:#98a3b6; --mute:#5e6a7e;
+  --line:#212734; --hair:#1a1f29;
+  --accent:#6b87ff; --hot:#f4697f; --warm:#ffa95c; --ok:#3ecf96;
+}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);
+  font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto;padding:1.9rem 1.2rem 4rem}
+a{color:inherit}
+
+/* ── 页头 ── */
+.hero{margin-bottom:1.4rem}
+.hero-top{display:flex;align-items:baseline;gap:.75rem;flex-wrap:wrap}
+.hero .k{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent);font-weight:750}
+.hero h1{font-size:1.65rem;margin:.15rem 0 0;font-weight:780;
+  letter-spacing:-.03em;width:100%}
+.hero .d{color:var(--mute);font-size:.8rem;font-family:var(--mono)}
+.lang-switch{margin-left:auto;color:var(--accent);font-size:.78rem;font-weight:700;text-decoration:none}
+.chips{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:99px;
+  padding:.2rem .65rem;font-size:.74rem;color:var(--soft);white-space:nowrap}
+.chip b{color:var(--fg);font-weight:700;font-variant-numeric:tabular-nums}
+
+/* ── 分区标题：吸顶 ── */
+h2{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--mute);
+  font-weight:750;margin:1.6rem 0 .55rem;padding:.5rem 0 .35rem;
+  border-bottom:1px solid var(--line);position:sticky;top:0;
+  background:var(--bg);z-index:3;display:flex;align-items:center;gap:.4rem}
+h2 .cnt{margin-left:auto;font-family:var(--mono);font-size:.68rem;opacity:.75;
+  letter-spacing:0}
+section:first-of-type h2{margin-top:.8rem}
+
+/* ── 卡片 ── */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:.7rem .85rem;margin-bottom:.4rem;transition:border-color .12s}
+.card:hover{border-color:color-mix(in srgb,var(--accent) 35%,var(--line))}
+.card h3{font-size:.96rem;line-height:1.5;margin:0;font-weight:670;display:inline}
+.card p{margin:.22rem 0 .3rem;font-size:.855rem;color:var(--soft);line-height:1.65}
+
+.card.lead{border-left:3px solid var(--accent);padding:.9rem 1rem;margin-bottom:.5rem}
+.card.lead.i5{border-left-color:var(--hot)}
+.card.lead.i4{border-left-color:var(--warm)}
+.card.lead h3{font-size:1.16rem;font-weight:730;letter-spacing:-.015em}
+.card.lead p{font-size:.92rem;margin:.3rem 0 .4rem}
+
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.4rem;align-items:start}
+
+/* ── 标签：内联在标题前，不单独占行 ── */
+.pill{font-size:.63rem;font-weight:750;padding:.1rem .38rem;border-radius:4px;
+  letter-spacing:.03em;margin-right:.4rem;vertical-align:.12em;
+  white-space:nowrap;display:inline-block}
+.p5{background:color-mix(in srgb,var(--hot) 15%,transparent);color:var(--hot)}
+.p4{background:color-mix(in srgb,var(--warm) 18%,transparent);color:var(--warm)}
+.p3{background:color-mix(in srgb,var(--accent) 13%,transparent);color:var(--accent)}
+.p2,.p1{background:color-mix(in srgb,var(--mute) 15%,transparent);color:var(--mute)}
+.pm{background:color-mix(in srgb,var(--ok) 15%,transparent);color:var(--ok)}
+
+/* ── 来源展开 ── */
+details{margin:0}
+summary{font-size:.74rem;color:var(--mute);cursor:pointer;list-style:none;
+  display:inline-flex;align-items:center;gap:.3rem;user-select:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"";width:0;height:0;border-left:4px solid currentColor;
+  border-top:3.5px solid transparent;border-bottom:3.5px solid transparent;
+  transition:transform .15s}
+details[open] summary::before{transform:rotate(90deg)}
+summary:hover{color:var(--accent)}
+.srcs{margin:.3rem 0 .1rem;padding-left:.8rem;list-style:none;
+  border-left:2px solid var(--line)}
+.srcs li{font-size:.8rem;line-height:1.65;padding:.12rem 0}
+.srcs a{text-decoration:none}
+.srcs a:hover{text-decoration:underline;text-decoration-color:var(--accent)}
+.from{color:var(--mute);font-size:.72rem;margin-left:.4rem}
+.stat{color:var(--mute);font-size:.71rem;margin-left:.25rem;font-family:var(--mono)}
+
+/* ── 论文表 ── */
+.ptable{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden}
+table{width:100%;border-collapse:collapse}
+td{padding:.55rem .85rem;border-bottom:1px solid var(--hair);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:hover{background:var(--hair)}
+.pt{font-weight:660;text-decoration:none;font-size:.9rem}
+.pt:hover{text-decoration:underline}
+.ps{color:var(--soft);font-size:.815rem;margin-top:.12rem;line-height:1.6}
+.up{text-align:right;color:var(--mute);width:3.6rem;font-size:.8rem;
+  font-family:var(--mono);white-space:nowrap}
+
+/* ── 每周精选横幅：论文区顶部，与今日上榜区分 ── */
+.weekly{display:flex;align-items:center;gap:.8rem;text-decoration:none;
+  background:linear-gradient(135deg,
+    color-mix(in srgb,var(--accent) 7%,var(--card)),var(--card));
+  border:1px solid color-mix(in srgb,var(--accent) 28%,var(--line));
+  border-radius:var(--r);padding:.7rem .9rem;margin-bottom:.45rem;
+  transition:border-color .12s,transform .12s}
+.weekly:hover{border-color:var(--accent);transform:translateY(-1px)}
+.w-tag{font-size:.63rem;font-weight:750;letter-spacing:.04em;color:var(--accent);
+  background:color-mix(in srgb,var(--accent) 14%,transparent);
+  padding:.22rem .45rem;border-radius:4px;white-space:nowrap;flex-shrink:0}
+.w-body{flex:1;min-width:0}
+.w-title{font-size:.94rem;font-weight:680;line-height:1.45}
+.w-sum{font-size:.8rem;color:var(--soft);line-height:1.55;margin-top:.1rem}
+.w-go{font-size:.76rem;color:var(--accent);font-weight:650;white-space:nowrap;
+  flex-shrink:0}
+
+/* ── 页脚 ── */
+.foot{margin-top:2rem;padding-top:.9rem;border-top:1px solid var(--line);
+  font-size:.74rem;color:var(--mute);display:flex;gap:.9rem;flex-wrap:wrap;
+  align-items:center}
+.foot a{color:var(--accent);text-decoration:none}
+.foot a:hover{text-decoration:underline}
+.foot details{margin-left:auto}
+.foot summary{font-size:.74rem}
+.foot table{margin:.5rem 0;font-size:.78rem}
+.foot td{padding:.25rem .5rem;border-color:var(--hair)}
+.foot p{margin:.4rem 0;max-width:60ch;line-height:1.7}
+
+@media(max-width:780px){
+  .grid{grid-template-columns:1fr}
+  .wrap{padding:1.4rem .9rem 3rem}
+  .hero h1{font-size:1.42rem}
+  .card.lead h3{font-size:1.06rem}
+  body{font-size:14.5px}
+  .foot details{margin-left:0}
+}
+@media print{
+  details,.foot{display:none}
+  .card{break-inside:avoid;box-shadow:none}
+  h2{position:static}
+}
+</style>
+</head>
+<body><div class="wrap"><div class="hero"><div class="hero-top"><span class="k">AI Daily Brief</span><span class="d">2026-08-31 · 星期一</span><a class="lang-switch" data-language-link href="en/2026-08-31.html">English</a></div><h1>今日 AI 动态</h1><div class="chips"><span class="chip"><b>25</b> 话题</span><span class="chip"><b>13</b> 信息源</span><span class="chip"><b>2</b> 多源报道</span><span class="chip"><b>11</b> 篇论文</span></div></div><section><h2>今日头条<span class="cnt">3</span></h2><div class="card lead i4"><span class="pill p4">重要</span><h3>Google DeepMind 发布 Gemini Omni 1.1 Flash</h3><p>Google DeepMind 发布 Gemini Omni 1.1 Flash 模型，强调提供更强的构建控制能力。作为官方实验室的实质性技术进展，该模型旨在优化开发者在特定场景下的使用体验。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://deepmind.google/blog/gemini-omni-1-1-flash-lets-you-build-with-more-control/" target="_blank" rel="noopener">Gemini Omni 1.1 Flash lets you build with more control</a><span class="from">Google DeepMind</span></li></ul></details></div><div class="card lead i4"><span class="pill p4">重要</span><h3>NVIDIA 开始大规模交付 Vera 智能体专用 CPU</h3><p>NVIDIA 宣布其首款专为 AI 智能体设计的 Vera CPU 开始大规模发货。这一硬件进展针对智能体工作负载优化，可能重塑 AI 基础设施的硬件格局。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://blogs.nvidia.com/blog/vera-cpu-delivery/" target="_blank" rel="noopener">Delivering Vera: NVIDIA’s First CPU Built for Agents Is Shipping Now</a><span class="from">NVIDIA</span></li></ul></details></div><div class="card lead i4"><span class="pill p4">重要</span><h3>Google Research 发布地球 AI 行星预测引擎</h3><p>Google Research 推出基于 Earth AI 的行星预测引擎，旨在自动化全球模型构建。这项研究突破将 AI 应用于地球科学，有望提升对全球气候和环境变化的预测精度。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://research.google/blog/planetary-prediction-engine-automating-global-models-via-earth-ai/" target="_blank" rel="noopener">Planetary prediction engine: Automating global models via Earth AI</a><span class="from">Google Research</span></li></ul></details></div></section><section id="模型与产品发布"><h2>🚀 模型与产品发布<span class="cnt">1</span></h2><div class="grid"><div class="card"><span class="pill p3">关注</span><h3>Simon Willison 介绍腾讯 Hy4 预览版模型</h3><p>Simon Willison 介绍了腾讯发布的 Hy4 预览版开源权重文本模型，该模型拥有 770B 总参数和 1M 上下文窗口。作为来自中国的最新开源大模型，其性能表现值得关注。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://simonwillison.net/2026/Aug/29/hy4/" target="_blank" rel="noopener">Introducing Hy4 Preview</a><span class="from">Simon Willison</span></li></ul></details></div></div></section><section id="研究突破"><h2>🔬 研究突破<span class="cnt">1</span></h2><div class="grid"><div class="card"><span class="pill p4">重要</span><h3>Google DeepMind 试点全球首个双盲 AI 评估</h3><p>Google DeepMind 启动全球首个双盲 AI 评估试点，旨在通过更严谨的方法论提升 AI 能力评估的客观性和可靠性。这一举措对于建立行业标准的评估体系具有重要意义。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/" target="_blank" rel="noopener">Piloting the world&#x27;s first double-blind AI evaluations</a><span class="from">Google DeepMind</span></li></ul></details></div></div></section><section id="行业动态"><h2>📈 行业动态<span class="cnt">3</span></h2><div class="grid"><div class="card"><span class="pill p3">关注</span><h3>OpenAI 终止与 Cursor 的模型供应合作</h3><p>OpenAI 官方宣布，在 Cursor 被 SpaceX 收购后，将终止向 Cursor 提供模型服务的合同。这一决定反映了前沿实验室在合作伙伴选择上的战略调整，可能影响开发者工具生态。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex" target="_blank" rel="noopener">Our decision on Cursor following its acquisition by SpaceX</a><span class="from">OpenAI</span></li></ul></details></div><div class="card"><span class="pill p2">一般</span><h3>OpenAI 启动泰国 AI 初创企业加速器</h3><p>OpenAI 与泰国高等教育、科研与创新部合作，启动为期八周的加速器项目，帮助 10 家健康、教育和福祉领域的初创企业将 AI 原型转化为可信产品。此举旨在推动 AI 技术在东南亚地区的落地应用。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://openai.com/index/supporting-next-generation-ai-startups-thailand" target="_blank" rel="noopener">Supporting Thailand’s next generation of AI startups</a><span class="from">OpenAI</span></li></ul></details></div><div class="card"><span class="pill p2">一般</span><h3>Hugging Face 开放 ASR 榜单新增全球南方语言</h3><p>Hugging Face 的开放自动语音识别（ASR）排行榜首次纳入全球南方语言，标志着开源语音识别技术在多语言支持方面的重要进展，有助于提升非英语语言的处理能力。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://huggingface.co/blog/open-asr-leaderboard-global-south" target="_blank" rel="noopener">The Open ASR Leaderboard Adds Its First Global South Language</a><span class="from">Hugging Face</span></li></ul></details></div></div></section><section id="观点与争议"><h2>💬 观点与争议<span class="cnt">4</span></h2><div class="grid"><div class="card"><span class="pill p3">关注</span><span class="pill pm">2 源</span><h3>Simon Willison 解析 ChatGPT Work 产品逻辑</h3><p>Simon Willison 对 OpenAI 于 7 月 9 日发布的 ChatGPT Work 进行深度解析，指出该产品功能强大但设计令人困惑。文章梳理了该产品的核心机制，帮助用户理解其在工作流中的定位。</p><details><summary>2 篇来源</summary><ul class="srcs"><li><a href="https://simonwillison.net/2026/Aug/30/understanding-chatgpt-work/" target="_blank" rel="noopener">Understanding ChatGPT Work</a><span class="from">Simon Willison</span></li><li><a href="https://simonwillison.net/2026/Aug/28/just-a-rumour-of-a-bug/" target="_blank" rel="noopener">Just a rumour of a bug is enough to find a security exploit these days</a><span class="from">Simon Willison</span></li></ul></details></div><div class="card"><span class="pill p3">关注</span><h3>Dwarkesh Patel 解读 OpenAI 与 Hugging Face 事件</h3><p>Dwarkesh Patel 用通俗语言解读了近期 OpenAI 与 Hugging Face 之间关于智能体文明兴衰的争议或事件。该文章旨在帮助公众理解两大机构在 AI 安全与开放性问题上的立场差异。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://www.dwarkesh.com/p/openai-huggingface" target="_blank" rel="noopener">The Rise and Fall of Agent Civilizations</a><span class="from">Dwarkesh Patel</span></li></ul></details></div><div class="card"><span class="pill p2">一般</span><h3>Sean Goedecke 探讨工程师在 AI 时代的价值</h3><p>Sean Goedecke 撰文讨论在 AI 模型能力日益增强的背景下，软件工程师应如何定义自身价值。他提出工程师需在模型无法替代的领域保持优势，引发了关于职业发展的思考。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://seangoedecke.com/you-have-to-beat-the-models-at-something/" target="_blank" rel="noopener">You have to beat the models at something</a><span class="from">Sean Goedecke</span></li></ul></details></div><div class="card"><span class="pill p2">一般</span><h3>Ed Zitron 撰文剖析英伟达循环融资争议</h3><p>博主 Ed Zitron 发布付费文章，以讽刺笔触分析英伟达的“循环融资”现象，引用黄仁勋言论探讨其商业模式的争议性。这属于针对特定公司财务策略的观点评论，反映了行业内对巨头资本运作的不同声音。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://www.wheresyoured.at/premium-the-haters-guide-to-circular-financing-part-one/" target="_blank" rel="noopener">Premium: The Hater&#x27;s Guide To Circular Financing (Part One)</a><span class="from">Ed Zitron</span></li></ul></details></div></div></section><section id="工程实践"><h2>🛠️ 工程实践<span class="cnt">2</span></h2><div class="grid"><div class="card"><span class="pill p3">关注</span><span class="pill pm">2 源</span><h3>Simon Willison 分析 Claude Code 自动模式安全机制</h3><p>Simon Willison 深入剖析了 Anthropic 在 Claude Code 中引入的 Auto Mode，重点讨论其如何防御提示注入攻击。该分析揭示了当前编码智能体在安全性设计上的关键权衡与潜在风险。</p><details><summary>2 篇来源</summary><ul class="srcs"><li><a href="https://simonwillison.net/2026/Aug/27/breaking-claude-code-opus-5-auto-mode/" target="_blank" rel="noopener">Breaking Claude Code Opus 5 Auto Mode</a><span class="from">Simon Willison</span></li><li><a href="https://embracethered.com/blog/posts/2026/breaking-claude-code-opus-5-and-automode/" target="_blank" rel="noopener">Breaking Claude Code Opus 5 Auto Mode</a><span class="from">HN · embracethered.com</span><span class="stat">🔥136 💬47</span></li></ul></details></div><div class="card"><span class="pill p2">一般</span><h3>技术博客分享扩散语言模型构建方法</h3><p>一篇技术博客文章介绍了如何构建扩散语言模型（Diffusion Language Model）。这属于具体的工程实践分享，为开发者提供了新的模型架构实现思路，但非前沿实验室的重大突破。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://kuleshov-group.github.io/blog/blog/2026/how-to-build-a-diffusion-language-model/" target="_blank" rel="noopener">How to build a diffusion language model</a><span class="from">HN · kuleshov-group.github.io</span><span class="stat">🔥122 💬14</span></li></ul></details></div></div></section><section id="papers"><h2>📄 论文<span class="cnt">10</span></h2><a class="weekly" href="https://github.com/dair-ai/AI-Papers-of-the-Week" target="_blank" rel="noopener"><div class="w-tag">每周精选</div><div class="w-body"><div class="w-title">dair-ai 每周论文精选（August 17 - August 23）</div><div class="w-sum">DAIR.AI 人工维护的每周 AI 论文精选，每期挑选约 10 篇最值得关注的论文并附解读。最新一期：August 17 - August 23。</div></div><div class="w-go">查看 →</div></a><div class="ptable"><table><tbody><tr><td><a class="pt" href="https://huggingface.co/papers/2608.28281" target="_blank" rel="noopener">LoopArena: 评估模型作为循环工程运行时控制器</a><div class="ps">针对新兴的循环工程实践，提出基准测试以评估模型在监控进度、分配任务及决策方面的运行时控制能力。</div></td><td class="up">👍76</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.18524" target="_blank" rel="noopener">DART-SD: 多轮工具调用智能体的自蒸馏优化</a><div class="ps">解决多轮工具调用依赖全轨迹模仿的问题，利用菱形拓扑感知的检索与调优实现高效自蒸馏。</div></td><td class="up">👍59</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.27550" target="_blank" rel="noopener">VLA模型：基于表征中心的持续预训练</a><div class="ps">克服机器人数据扩展成本高且覆盖稀疏的瓶颈，通过以表征为中心的持续预训练提升视觉-语言-动作模型性能。</div></td><td class="up">👍45</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.28122" target="_blank" rel="noopener">Agentic Artifact Creation: 智能体工件创建综述</a><div class="ps">探讨生成模型如何将提示转化为完整、可靠的工件，系统阐述智能体工件创建的系统、评估原则及机遇。</div></td><td class="up">👍44</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.27549" target="_blank" rel="noopener">Code as Worlds: 可执行世界表征用于物理推理</a><div class="ps">通过智能体发现可执行的世界表征代码，弥补视觉语言模型缺乏显式物理机制表征的缺陷，增强物理推理能力。</div></td><td class="up">👍37</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.26582" target="_blank" rel="noopener">J-Zero: 零数据下挑战者-求解者-裁判共进化</a><div class="ps">在不可验证领域实现自进化，通过挑战者、求解者和裁判的零数据协同进化，降低对人类监督的依赖。</div></td><td class="up">👍33</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.27529" target="_blank" rel="noopener">长时程流式3D重建：重访局部上下文</a><div class="ps">解决长视频流式3D重建中内存受限问题，通过重访局部上下文策略优化在线相机运动与场景几何估计。</div></td><td class="up">👍28</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.28460" target="_blank" rel="noopener">LayerRecall: 视频生成中的状态条件记忆路由</a><div class="ps">针对长视频生成中历史线索被驱逐导致的一致性问题，提出状态条件记忆路由器以维持长时程一致性。</div></td><td class="up">👍23</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.28476" target="_blank" rel="noopener">ContextPilot: 细粒度RL训练智能体上下文管理</a><div class="ps">解决长时程任务中工作记忆无限增长的问题，通过细粒度强化学习训练智能体主动管理分散的交互信息。</div></td><td class="up">👍23</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.23478" target="_blank" rel="noopener">Act with Intent: VLA模型行为意图蒸馏</a><div class="ps">超越行为克隆，通过蒸馏行为意图来明确局部目标，提升视觉-语言-动作模型在机器人控制中的决策能力。</div></td><td class="up">👍18</td></tr></tbody></table></div></section><div class="foot"><span>生成于 2026-08-31 12:50</span><a href="index.html">最新</a><a href="archive.html">历史</a><details><summary>数据来源与说明</summary><table><tbody><tr><td>Dwarkesh Patel</td><td>1</td></tr><tr><td>Ed Zitron</td><td>1</td></tr><tr><td>Google DeepMind</td><td>2</td></tr><tr><td>Google Research</td><td>1</td></tr><tr><td>HN · embracethered.com</td><td>1</td></tr><tr><td>HN · kuleshov-group.github.io</td><td>1</td></tr><tr><td>Hugging Face</td><td>1</td></tr><tr><td>HuggingFace Papers</td><td>10</td></tr><tr><td>NVIDIA</td><td>1</td></tr><tr><td>OpenAI</td><td>2</td></tr><tr><td>Sean Goedecke</td><td>1</td></tr><tr><td>Simon Willison</td><td>4</td></tr><tr><td>dair-ai Papers of the Week</td><td>1</td></tr></tbody></table><p>每日从官方实验室博客、KOL 博客、科技媒体、HuggingFace 论文榜和 Hacker News 抓取，经关键词过滤与去重后，由 Groq 将讲同一件事的条目聚合成话题，生成中文标题、摘要与重要性评分。</p><p>重要性标签为模型判断，仅供排序参考；论文按社区 upvotes 排序。</p></details></div></div></body>
+</html>
