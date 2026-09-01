@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Daily AI industry brief · 2026-09-01">
+<meta property="og:title" content="Today in AI · September 01, 2026">
+<meta property="og:description" content="29 topics from 16 sources">
+<meta property="og:type" content="article"><title>AI Daily Brief · 2026-09-01</title>
+<style>
+:root{
+  --bg:#f5f7fa; --card:#fff; --fg:#131720; --soft:#4d5768; --mute:#8b95a6;
+  --line:#e4e8ef; --hair:#eef1f6;
+  --accent:#3355ee; --hot:#e0455e; --warm:#ee8c2b; --ok:#12a374;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB",
+         "Microsoft YaHei",system-ui,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --r:10px;
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg:#0a0c10; --card:#141821; --fg:#e9ecf2; --soft:#98a3b6; --mute:#5e6a7e;
+  --line:#212734; --hair:#1a1f29;
+  --accent:#6b87ff; --hot:#f4697f; --warm:#ffa95c; --ok:#3ecf96;
+}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);
+  font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto;padding:1.9rem 1.2rem 4rem}
+a{color:inherit}
+
+/* ── 页头 ── */
+.hero{margin-bottom:1.4rem}
+.hero-top{display:flex;align-items:baseline;gap:.75rem;flex-wrap:wrap}
+.hero .k{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent);font-weight:750}
+.hero h1{font-size:1.65rem;margin:.15rem 0 0;font-weight:780;
+  letter-spacing:-.03em;width:100%}
+.hero .d{color:var(--mute);font-size:.8rem;font-family:var(--mono)}
+.lang-switch{margin-left:auto;color:var(--accent);font-size:.78rem;font-weight:700;text-decoration:none}
+.chips{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:99px;
+  padding:.2rem .65rem;font-size:.74rem;color:var(--soft);white-space:nowrap}
+.chip b{color:var(--fg);font-weight:700;font-variant-numeric:tabular-nums}
+
+/* ── 分区标题：吸顶 ── */
+h2{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--mute);
+  font-weight:750;margin:1.6rem 0 .55rem;padding:.5rem 0 .35rem;
+  border-bottom:1px solid var(--line);position:sticky;top:0;
+  background:var(--bg);z-index:3;display:flex;align-items:center;gap:.4rem}
+h2 .cnt{margin-left:auto;font-family:var(--mono);font-size:.68rem;opacity:.75;
+  letter-spacing:0}
+section:first-of-type h2{margin-top:.8rem}
+
+/* ── 卡片 ── */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:.7rem .85rem;margin-bottom:.4rem;transition:border-color .12s}
+.card:hover{border-color:color-mix(in srgb,var(--accent) 35%,var(--line))}
+.card h3{font-size:.96rem;line-height:1.5;margin:0;font-weight:670;display:inline}
+.card p{margin:.22rem 0 .3rem;font-size:.855rem;color:var(--soft);line-height:1.65}
+
+.card.lead{border-left:3px solid var(--accent);padding:.9rem 1rem;margin-bottom:.5rem}
+.card.lead.i5{border-left-color:var(--hot)}
+.card.lead.i4{border-left-color:var(--warm)}
+.card.lead h3{font-size:1.16rem;font-weight:730;letter-spacing:-.015em}
+.card.lead p{font-size:.92rem;margin:.3rem 0 .4rem}
+
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.4rem;align-items:start}
+
+/* ── 标签：内联在标题前，不单独占行 ── */
+.pill{font-size:.63rem;font-weight:750;padding:.1rem .38rem;border-radius:4px;
+  letter-spacing:.03em;margin-right:.4rem;vertical-align:.12em;
+  white-space:nowrap;display:inline-block}
+.p5{background:color-mix(in srgb,var(--hot) 15%,transparent);color:var(--hot)}
+.p4{background:color-mix(in srgb,var(--warm) 18%,transparent);color:var(--warm)}
+.p3{background:color-mix(in srgb,var(--accent) 13%,transparent);color:var(--accent)}
+.p2,.p1{background:color-mix(in srgb,var(--mute) 15%,transparent);color:var(--mute)}
+.pm{background:color-mix(in srgb,var(--ok) 15%,transparent);color:var(--ok)}
+
+/* ── 来源展开 ── */
+details{margin:0}
+summary{font-size:.74rem;color:var(--mute);cursor:pointer;list-style:none;
+  display:inline-flex;align-items:center;gap:.3rem;user-select:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"";width:0;height:0;border-left:4px solid currentColor;
+  border-top:3.5px solid transparent;border-bottom:3.5px solid transparent;
+  transition:transform .15s}
+details[open] summary::before{transform:rotate(90deg)}
+summary:hover{color:var(--accent)}
+.srcs{margin:.3rem 0 .1rem;padding-left:.8rem;list-style:none;
+  border-left:2px solid var(--line)}
+.srcs li{font-size:.8rem;line-height:1.65;padding:.12rem 0}
+.srcs a{text-decoration:none}
+.srcs a:hover{text-decoration:underline;text-decoration-color:var(--accent)}
+.from{color:var(--mute);font-size:.72rem;margin-left:.4rem}
+.stat{color:var(--mute);font-size:.71rem;margin-left:.25rem;font-family:var(--mono)}
+
+/* ── 论文表 ── */
+.ptable{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden}
+table{width:100%;border-collapse:collapse}
+td{padding:.55rem .85rem;border-bottom:1px solid var(--hair);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:hover{background:var(--hair)}
+.pt{font-weight:660;text-decoration:none;font-size:.9rem}
+.pt:hover{text-decoration:underline}
+.ps{color:var(--soft);font-size:.815rem;margin-top:.12rem;line-height:1.6}
+.up{text-align:right;color:var(--mute);width:3.6rem;font-size:.8rem;
+  font-family:var(--mono);white-space:nowrap}
+
+/* ── 每周精选横幅：论文区顶部，与今日上榜区分 ── */
+.weekly{display:flex;align-items:center;gap:.8rem;text-decoration:none;
+  background:linear-gradient(135deg,
+    color-mix(in srgb,var(--accent) 7%,var(--card)),var(--card));
+  border:1px solid color-mix(in srgb,var(--accent) 28%,var(--line));
+  border-radius:var(--r);padding:.7rem .9rem;margin-bottom:.45rem;
+  transition:border-color .12s,transform .12s}
+.weekly:hover{border-color:var(--accent);transform:translateY(-1px)}
+.w-tag{font-size:.63rem;font-weight:750;letter-spacing:.04em;color:var(--accent);
+  background:color-mix(in srgb,var(--accent) 14%,transparent);
+  padding:.22rem .45rem;border-radius:4px;white-space:nowrap;flex-shrink:0}
+.w-body{flex:1;min-width:0}
+.w-title{font-size:.94rem;font-weight:680;line-height:1.45}
+.w-sum{font-size:.8rem;color:var(--soft);line-height:1.55;margin-top:.1rem}
+.w-go{font-size:.76rem;color:var(--accent);font-weight:650;white-space:nowrap;
+  flex-shrink:0}
+
+/* ── 页脚 ── */
+.foot{margin-top:2rem;padding-top:.9rem;border-top:1px solid var(--line);
+  font-size:.74rem;color:var(--mute);display:flex;gap:.9rem;flex-wrap:wrap;
+  align-items:center}
+.foot a{color:var(--accent);text-decoration:none}
+.foot a:hover{text-decoration:underline}
+.foot details{margin-left:auto}
+.foot summary{font-size:.74rem}
+.foot table{margin:.5rem 0;font-size:.78rem}
+.foot td{padding:.25rem .5rem;border-color:var(--hair)}
+.foot p{margin:.4rem 0;max-width:60ch;line-height:1.7}
+
+@media(max-width:780px){
+  .grid{grid-template-columns:1fr}
+  .wrap{padding:1.4rem .9rem 3rem}
+  .hero h1{font-size:1.42rem}
+  .card.lead h3{font-size:1.06rem}
+  body{font-size:14.5px}
+  .foot details{margin-left:0}
+}
+@media print{
+  details,.foot{display:none}
+  .card{break-inside:avoid;box-shadow:none}
+  h2{position:static}
+}
+</style></head><body><div class="wrap"><div class="hero"><div class="hero-top"><span class="k">AI Daily Brief</span><span class="d">September 01, 2026</span><a class="lang-switch" data-language-link href="../2026-09-01.html">中文</a></div><h1>Today in AI</h1><div class="chips"><span class="chip"><b>29</b> topics</span><span class="chip"><b>16</b> sources</span><span class="chip"><b>2</b> multi-source stories</span><span class="chip"><b>11</b> papers</span></div></div><section><h2>Today’s highlights<span class="cnt">3</span></h2><div class="card lead i4"><span class="pill p4">Important</span><span class="pill pm">2 sources</span><h3>OpenAI Launches ChatGPT Work and Releases Comprehensive Tool Reference</h3><p>OpenAI introduced ChatGPT Work, a product designed to transform workflows through advanced automation. Simon Willison analyzed its features and published a detailed reference for its tools and skills, marking a significant enterprise iteration.</p><details><summary>2 sources</summary><ul class="srcs"><li><a href="https://simonwillison.net/2026/Aug/30/understanding-chatgpt-work/" target="_blank" rel="noopener">Understanding ChatGPT Work</a><span class="from">Simon Willison</span></li><li><a href="https://codex-tool-reference.simonw.chatgpt.site/" target="_blank" rel="noopener">ChatGPT Work Tool and Skill Reference</a><span class="from">HN · codex-tool-reference.simonw.chatgpt.site</span><span class="stat">🔥183 💬51</span></li></ul></details></div><div class="card lead i4"><span class="pill p4">Important</span><h3>Tencent Releases Hy4 Preview, a 770B Open-Source Large Language Model</h3><p>Tencent released the Hy4 preview, an open-weight text LLM featuring 770B total parameters, 49B active parameters, and a 1M context window. The model is available on Hugging Face, showcasing progress in ultra-large sparse models from Chinese tech giants.</p><details><summary>Source</summary><ul class="srcs"><li><a href="https://simonwillison.net/2026/Aug/29/hy4/" target="_blank" rel="noopener">Introducing Hy4 Preview</a><span class="from">Simon Willison</span></li></ul></details></div><div class="card lead i4"><span class="pill p4">Important</span><h3>OpenAI Ends Model Supply Contract with Cursor Following SpaceX Acquisition</h3><p>OpenAI has terminated its model supply agreement with Cursor after the company was acquired by SpaceX. This strategic move highlights shifting commercial dynamics and raises concerns about the independence of the AI toolchain.</p><details><summary>Source</summary><ul class="srcs"><li><a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex" target="_blank" rel="noopener">Our decision on Cursor following its acquisition by SpaceX</a><span class="from">OpenAI</span></li></ul></details></div></section><section id="模型与产品发布"><h2>🚀 Model & Product Releases<span class="cnt">1</span></h2><div class="grid"><div class="card"><span class="pill p2">General</span><h3>Almanac Launches Enterprise AI Assistant for Deep Internal Knowledge</h3><p>Almanac, a YC S26 project, launched on Hacker News as an AI assistant that deeply understands internal company information. It addresses fragmented enterprise knowledge by integrating internal data to provide precise business support.</p><details><summary>Source</summary><ul class="srcs"><li><a href="https://usealmanac.com/" target="_blank" rel="noopener">Launch HN: Almanac (YC S26) – AI that knows your company</a><span class="from">HN · usealmanac.com</span><span class="stat">🔥47 💬42</span></li></ul></details></div></div></section><section id="研究突破"><h2>🔬 Research Breakthroughs<span class="cnt">1</span></h2><div class="grid"><div class="card"><span class="pill p3">Watch</span><h3>Google Research Releases TimesFM-3 for Zero-Shot Multivariate Forecasting</h3><p>Google Research launched TimesFM-3, a zero-shot foundation model designed for multivariate time series forecasting. The model aims to simplify complex analysis tasks and enhance automation in data management.</p><details><summary>Source</summary><ul class="srcs"><li><a href="https://research.google/blog/timesfm-3-a-zero-shot-foundation-model-for-multivariate-forecasting/" target="_blank" rel="noopener">TimesFM-3: A zero-shot foundation model for multivariate forecasting</a><span class="from">Google Research</span></li></ul></details></div></div></section><section id="行业动态"><h2>📈 Industry<span class="cnt">6</span></h2><div class="grid"><div class="card"><span class="pill p4">Important</span><h3>Nvidia Invests $3.5B in MediaTek to Counter Big Tech AI Chip Buildout</h3><p>Nvidia announced a $3.5 billion investment in MediaTek, a strategic move to counter the trend of Big Tech companies building their own AI chips. This investment aims to solidify Nvidia&#x27;s core position in the AI infrastructure market.</p><details><summary>Source</summary><ul class="srcs"><li><a href="https://techcrunch.com/2026/08/31/nvidias-3-5b-mediatek-bet-reveals-its-plan-for-tackling-big-techs-ai-chip-buildout/" target="_blank" rel="noopener">Nvidia’s $3.5B MediaTek bet reveals its plan for tackling Big Tech’s AI chip buildout</a><span class="from">TechCrunch AI</span></li></ul></details></div><div class="card"><span class="pill p4">Important</span><h3>Pentagon Integrates ChatGPT and Grok into Central AI Tool Portal</h3><p>The US Department of Defense has integrated OpenAI&#x27;s ChatGPT and xAI&#x27;s Grok into its central AI portal alongside Google Gemini. This marks the formal entry of major LLMs into core US defense workflows, raising attention on military AI applications and vendor diversity.</p><details><summary>Source</summary><ul class="srcs"><li><a href="https://techcrunch.com/2026/08/31/the-pentagon-now-has-its-own-version-of-chatgpt-and-grok/" target="_blank" rel="noopener">The Pentagon now has its own version of ChatGPT and Grok</a><span class="from">TechCrunch AI</span></li></ul></details></div><div class="card"><span class="pill p3">Watch</span><h3>OpenAI Reports $1 Billion Annualized Revenue from ChatGPT Advertising</h3><p>OpenAI announced that its ChatGPT advertising business has reached a $1 billion annualized revenue run rate, with plans for global expansion. This milestone demonstrates the commercial viability of ad-supported AI models in enabling broader free or low-cost access.</p><details><summary>Source</summary><ul class="srcs"><li><a href="https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads" target="_blank" rel="noopener">A milestone in expanding access to AI</a><span class="from">OpenAI</span></li></ul></details></div><div class="card"><span class="pill p3">Watch</span><h3>OpenAI Partners with Polimill to Build Japan&#x27;s Public AI Infrastructure</h3><p>OpenAI is collaborating with Polimill to use GPT models and Codex to help Japanese local governments search administrative knowledge and accelerate development. This initiative aims to improve public service efficiency through AI-driven government infrastructure.</p><details><summary>Source</summary><ul class="srcs"><li><a href="https://openai.com/index/polimill" target="_blank" rel="noopener">Polimill builds Japan&#x27;s next-generation public AI infrastructure</a><span class="from">OpenAI</span></li></ul></details></div><div class="card"><span class="pill p3">Watch</span><h3>Debian Decides Not to Ban AI-Generated Code in Linux Distribution</h3><p>The Debian project voted to allow developers to use AI tools for code contributions, maintenance, and documentation. This decision reflects a pragmatic stance in the open-source community, managing risks through guidelines rather than bans.</p><details><summary>Source</summary><ul class="srcs"><li><a href="https://www.theverge.com/tech/986789/linux-debian-generative-ai-policy" target="_blank" rel="noopener">Debian won&amp;#8217;t ban AI code from its Linux distribution</a><span class="from">The Verge</span></li></ul></details></div><div class="card"><span class="pill p2">General</span><h3>Autonomous Hires Engineers for Financial Reasoning Systems and Agentic Wealth Strategies</h3><p>YC F25 company Autonomous is hiring engineers to deploy frontier reasoning systems in financial markets and build agentic wealth strategists. This reflects the growing trend of AI agents being deployed in vertical financial sectors.</p><details><summary>Source</summary><ul class="srcs"><li><a href="https://news.ycombinator.com/item?id=49514781" target="_blank" rel="noopener">Autonomous (YC F25) is hiring engineers</a><span class="from">HN · news.ycombinator.com</span></li></ul></details></div></div></section><section id="观点与争议"><h2>💬 Views & Debate<span class="cnt">4</span></h2><div class="grid"><div class="card"><span class="pill p3">Watch</span><span class="pill pm">3 sources</span><h3>Dwarkesh Patel Explains the OpenAI and Hugging Face Agent Controversy</h3><p>Dwarkesh Patel published an article clarifying the recent dispute between OpenAI and Hugging Face regarding agent civilizations and potential attacks. The explanation helps the public understand the divergent views on AI safety and ecosystem governance between the two platforms.</p><details><summary>3 sources</summary><ul class="srcs"><li><a href="https://www.dwarkesh.com/p/openai-huggingface-narration" target="_blank" rel="noopener">The rise and fall of agent civilizations</a><span class="from">Dwarkesh Patel</span></li><li><a href="https://www.dwarkesh.com/p/openai-huggingface" target="_blank" rel="noopener">The Rise and Fall of Agent Civilizations</a><span class="from">Dwarkesh Patel</span></li><li><a href="https://www.technologyreview.com/2026/08/31/1143180/hugging-face-hack-could-indicate-cultural-issues-at-openai/" target="_blank" rel="noopener">The Hugging Face hack could indicate cultural issues at OpenAI</a><span class="from">MIT Tech Review</span></li></ul></details></div><div class="card"><span class="pill p2">General</span><h3>Sean Goedecke Discusses Evaluating Engineer Value in the AI Era</h3><p>Sean Goedecke wrote about how software engineers should be assessed in the age of AI, proposing the concept of &#x27;value relative to alternatives.&#x27; The article reflects on the impact of AI on traditional engineering role valuation.</p><details><summary>Source</summary><ul class="srcs"><li><a href="https://seangoedecke.com/you-have-to-beat-the-models-at-something/" target="_blank" rel="noopener">You have to beat the models at something</a><span class="from">Sean Goedecke</span></li></ul></details></div><div class="card"><span class="pill p2">General</span><h3>Simon Willison Notes AI Can Find Exploits from Bug Rumors Alone</h3><p>Simon Willison commented on Anil Madhavapeddy&#x27;s view that mere rumors of bugs are now sufficient for AI to find security exploits. This highlights the rapid advancement of AI capabilities in cybersecurity and the resulting new risks.</p><details><summary>Source</summary><ul class="srcs"><li><a href="https://simonwillison.net/2026/Aug/28/just-a-rumour-of-a-bug/" target="_blank" rel="noopener">Just a rumour of a bug is enough to find a security exploit these days</a><span class="from">Simon Willison</span></li></ul></details></div><div class="card"><span class="pill p2">General</span><h3>Ed Zitron Criticizes NVIDIA&#x27;s Circular Financing Strategy in Paid Article</h3><p>Ed Zitron published a paid article satirically criticizing NVIDIA&#x27;s &#x27;circular financing&#x27; practices. The piece questions the sustainability of the company&#x27;s valuation and business model.</p><details><summary>Source</summary><ul class="srcs"><li><a href="https://www.wheresyoured.at/premium-the-haters-guide-to-circular-financing-part-one/" target="_blank" rel="noopener">Premium: The Hater&#x27;s Guide To Circular Financing (Part One)</a><span class="from">Ed Zitron</span></li></ul></details></div></div></section><section id="工程实践"><h2>🛠️ Engineering<span class="cnt">3</span></h2><div class="grid"><div class="card"><span class="pill p2">General</span><h3>Simon Willison Introduces wrapture, a Python Monkeypatching Library</h3><p>Simon Willison introduced wrapture, a library developed by Graham Dumpleton that extends the monkeypatching concepts of wrapt to broader scenarios. This update represents a specific engineering tool enhancement within the Python ecosystem.</p><details><summary>Source</summary><ul class="srcs"><li><a href="https://simonwillison.net/2026/Aug/31/introducing-wrapture/" target="_blank" rel="noopener">Introducing wrapture</a><span class="from">Simon Willison</span></li></ul></details></div><div class="card"><span class="pill p2">General</span><h3>Hebbian Robotics Launches HFlow SDK for Scalable Robotics Data Pipelines</h3><p>YC S26 startup Hebbian Robotics released the HFlow SDK on Hacker News to convert multimodal recordings from robots and human operators into scalable data pipelines. This addresses the data bottleneck in embodied AI through engineering practice.</p><details><summary>Source</summary><ul class="srcs"><li><a href="https://github.com/Hebbian-Robotics/hflow" target="_blank" rel="noopener">Launch HN: Hebbian Robotics (YC S26) – Build scalable robotics data pipelines</a><span class="from">HN · github.com</span><span class="stat">🔥40 💬10</span></li></ul></details></div><div class="card"><span class="pill p1">General</span><h3>Developer Uses Claude to Emulate QIC-117 Tape Drive for Retrocomputing</h3><p>A developer utilized Claude to assist in emulating a QIC-117 tape drive, demonstrating the application of LLMs in retrocomputing and hardware reverse engineering. This serves as a personal technical blog entry highlighting creative uses of AI.</p><details><summary>Source</summary><ul class="srcs"><li><a href="https://dmitrybrant.com/2026/08/23/claude-x-retrocomputing-emulating-a-qic-117-tape-drive" target="_blank" rel="noopener">Claude × retrocomputing: emulating a QIC-117 tape drive</a><span class="from">HN · dmitrybrant.com</span><span class="stat">🔥22 💬13</span></li></ul></details></div></div></section><section id="papers"><h2>📄 Papers<span class="cnt">10</span></h2><a class="weekly" href="https://github.com/dair-ai/AI-Papers-of-the-Week" target="_blank" rel="noopener"><div class="w-tag">Weekly picks</div><div class="w-body"><div class="w-title">DAIR.AI Weekly Paper Selection: August 24 - August 30</div><div class="w-sum">DAIR.AI curates a weekly selection of approximately ten notable AI papers with interpretations. The latest issue covers publications from August 24 to August 30.</div></div><div class="w-go">View →</div></a><div class="ptable"><table><tbody><tr><td><a class="pt" href="https://huggingface.co/papers/2608.28281" target="_blank" rel="noopener">LoopArena Benchmarks Models as Runtime Controllers for Loop Engineering</a><div class="ps">A new benchmark, LoopArena, evaluates LLMs&#x27; capabilities in monitoring progress, allocating tasks, and making decisions for agent behavior. It addresses the emerging practice of loop engineering in AI systems.</div></td><td class="up">👍89</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.27550" target="_blank" rel="noopener">Representation-Centric Continued Pre-training for Vision-Language-Action Models</a><div class="ps">A new method proposes representation-centric continued pre-training for VLA models to address the difficulty of scaling robot data. This approach reduces reliance on expensive embodied data collection.</div></td><td class="up">👍72</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.18524" target="_blank" rel="noopener">DART-SD Enhances Multi-Turn Tool-Calling Agents via Diamond-Topology Self-Distillation</a><div class="ps">DART-SD improves the performance of multi-turn tool-calling agents by using diamond-topology aware retrieval and tuning. This overcomes the limitations of full-length trajectory imitation in self-distillation.</div></td><td class="up">👍66</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.28122" target="_blank" rel="noopener">Agentic Artifact Creation: Systems, Evaluation, and Principles</a><div class="ps">This work explores how to transform generative model outputs into complete and reliable artifacts. It proposes system architectures, evaluation methods, and future opportunities for agentic artifact creation.</div></td><td class="up">👍52</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.27549" target="_blank" rel="noopener">Code as Worlds: Executable World Representations for Physical Reasoning</a><div class="ps">This approach uses agentic discovery of executable world representations to enhance physical reasoning capabilities. It addresses the lack of explicit physical mechanism representations in vision-language models.</div></td><td class="up">👍43</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.26582" target="_blank" rel="noopener">J-Zero: Unified Challenger-Solver-Judge Co-Evolution from Zero Data</a><div class="ps">J-Zero enables self-evolution in unverifiable domains through the co-evolution of challengers, solvers, and judges. This method reduces the dependency on human supervision data.</div></td><td class="up">👍35</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.27529" target="_blank" rel="noopener">Revisiting Local Context for Long-Horizon Streaming 3D Reconstruction</a><div class="ps">This work optimizes local context strategies for long-video streaming 3D reconstruction. It enables online camera motion and geometry estimation under limited memory and compute resources.</div></td><td class="up">👍29</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.27370" target="_blank" rel="noopener">Puro-2B: Pretraining Qwen2-1.5B on a Single RTX 5090 for Under $5,090</a><div class="ps">Researchers demonstrated pretraining a 2B parameter language model on a single RTX 5090 GPU for approximately $5,090. This approach significantly lowers the barrier for academic and open-source communities.</div></td><td class="up">👍28</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.23478" target="_blank" rel="noopener">Act with Intent: Distilling Behavior Intent for Vision-Language-Action Models</a><div class="ps">This method distills behavior intent rather than just imitating actions, allowing Vision-Language-Action models to understand local goals. It improves the rationality of robot action generation.</div></td><td class="up">👍27</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.28460" target="_blank" rel="noopener">LayerRecall: State-Conditioned Memory Router for Long-Horizon Video Consistency</a><div class="ps">LayerRecall introduces a state-conditioned memory router to address the loss of historical cues in autoregressive video diffusion. It ensures long-horizon consistency in generated videos.</div></td><td class="up">👍25</td></tr></tbody></table></div></section><div class="foot"><span>Generated 2026-09-01 02:02</span><a href="index.html">Latest</a><a href="archive.html">Archive</a><details><summary>Sources & methodology</summary><table><tbody><tr><td>Dwarkesh Patel</td><td>2</td></tr><tr><td>Ed Zitron</td><td>1</td></tr><tr><td>Google Research</td><td>1</td></tr><tr><td>HN · codex-tool-reference.simonw.chatgpt.site</td><td>1</td></tr><tr><td>HN · dmitrybrant.com</td><td>1</td></tr><tr><td>HN · github.com</td><td>1</td></tr><tr><td>HN · news.ycombinator.com</td><td>1</td></tr><tr><td>HN · usealmanac.com</td><td>1</td></tr><tr><td>HuggingFace Papers</td><td>10</td></tr><tr><td>MIT Tech Review</td><td>1</td></tr><tr><td>OpenAI</td><td>3</td></tr><tr><td>Sean Goedecke</td><td>1</td></tr><tr><td>Simon Willison</td><td>4</td></tr><tr><td>TechCrunch AI</td><td>2</td></tr><tr><td>The Verge</td><td>1</td></tr><tr><td>dair-ai Papers of the Week</td><td>1</td></tr></tbody></table><p>Collected daily from official lab blogs, independent technical writers, technology media, the Hugging Face papers leaderboard, and Hacker News. After filtering and deduplication, Groq groups reports about the same event and produces English headlines, summaries, and importance scores.</p><p>Importance labels are model judgments used for ordering; papers are ranked primarily by community upvotes.</p></details></div></div></body></html>

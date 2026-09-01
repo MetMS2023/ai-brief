@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="AI 行业每日动态 · 2026-09-01">
+<meta property="og:title" content="今日 AI 动态 · 2026年09月01日">
+<meta property="og:description" content="29 个话题，来自 16 个信息源">
+<meta property="og:type" content="article">
+<title>AI 日报 · 2026-09-01</title>
+<style>
+:root{
+  --bg:#f5f7fa; --card:#fff; --fg:#131720; --soft:#4d5768; --mute:#8b95a6;
+  --line:#e4e8ef; --hair:#eef1f6;
+  --accent:#3355ee; --hot:#e0455e; --warm:#ee8c2b; --ok:#12a374;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB",
+         "Microsoft YaHei",system-ui,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --r:10px;
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg:#0a0c10; --card:#141821; --fg:#e9ecf2; --soft:#98a3b6; --mute:#5e6a7e;
+  --line:#212734; --hair:#1a1f29;
+  --accent:#6b87ff; --hot:#f4697f; --warm:#ffa95c; --ok:#3ecf96;
+}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);
+  font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto;padding:1.9rem 1.2rem 4rem}
+a{color:inherit}
+
+/* ── 页头 ── */
+.hero{margin-bottom:1.4rem}
+.hero-top{display:flex;align-items:baseline;gap:.75rem;flex-wrap:wrap}
+.hero .k{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent);font-weight:750}
+.hero h1{font-size:1.65rem;margin:.15rem 0 0;font-weight:780;
+  letter-spacing:-.03em;width:100%}
+.hero .d{color:var(--mute);font-size:.8rem;font-family:var(--mono)}
+.lang-switch{margin-left:auto;color:var(--accent);font-size:.78rem;font-weight:700;text-decoration:none}
+.chips{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:99px;
+  padding:.2rem .65rem;font-size:.74rem;color:var(--soft);white-space:nowrap}
+.chip b{color:var(--fg);font-weight:700;font-variant-numeric:tabular-nums}
+
+/* ── 分区标题：吸顶 ── */
+h2{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--mute);
+  font-weight:750;margin:1.6rem 0 .55rem;padding:.5rem 0 .35rem;
+  border-bottom:1px solid var(--line);position:sticky;top:0;
+  background:var(--bg);z-index:3;display:flex;align-items:center;gap:.4rem}
+h2 .cnt{margin-left:auto;font-family:var(--mono);font-size:.68rem;opacity:.75;
+  letter-spacing:0}
+section:first-of-type h2{margin-top:.8rem}
+
+/* ── 卡片 ── */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:.7rem .85rem;margin-bottom:.4rem;transition:border-color .12s}
+.card:hover{border-color:color-mix(in srgb,var(--accent) 35%,var(--line))}
+.card h3{font-size:.96rem;line-height:1.5;margin:0;font-weight:670;display:inline}
+.card p{margin:.22rem 0 .3rem;font-size:.855rem;color:var(--soft);line-height:1.65}
+
+.card.lead{border-left:3px solid var(--accent);padding:.9rem 1rem;margin-bottom:.5rem}
+.card.lead.i5{border-left-color:var(--hot)}
+.card.lead.i4{border-left-color:var(--warm)}
+.card.lead h3{font-size:1.16rem;font-weight:730;letter-spacing:-.015em}
+.card.lead p{font-size:.92rem;margin:.3rem 0 .4rem}
+
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.4rem;align-items:start}
+
+/* ── 标签：内联在标题前，不单独占行 ── */
+.pill{font-size:.63rem;font-weight:750;padding:.1rem .38rem;border-radius:4px;
+  letter-spacing:.03em;margin-right:.4rem;vertical-align:.12em;
+  white-space:nowrap;display:inline-block}
+.p5{background:color-mix(in srgb,var(--hot) 15%,transparent);color:var(--hot)}
+.p4{background:color-mix(in srgb,var(--warm) 18%,transparent);color:var(--warm)}
+.p3{background:color-mix(in srgb,var(--accent) 13%,transparent);color:var(--accent)}
+.p2,.p1{background:color-mix(in srgb,var(--mute) 15%,transparent);color:var(--mute)}
+.pm{background:color-mix(in srgb,var(--ok) 15%,transparent);color:var(--ok)}
+
+/* ── 来源展开 ── */
+details{margin:0}
+summary{font-size:.74rem;color:var(--mute);cursor:pointer;list-style:none;
+  display:inline-flex;align-items:center;gap:.3rem;user-select:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"";width:0;height:0;border-left:4px solid currentColor;
+  border-top:3.5px solid transparent;border-bottom:3.5px solid transparent;
+  transition:transform .15s}
+details[open] summary::before{transform:rotate(90deg)}
+summary:hover{color:var(--accent)}
+.srcs{margin:.3rem 0 .1rem;padding-left:.8rem;list-style:none;
+  border-left:2px solid var(--line)}
+.srcs li{font-size:.8rem;line-height:1.65;padding:.12rem 0}
+.srcs a{text-decoration:none}
+.srcs a:hover{text-decoration:underline;text-decoration-color:var(--accent)}
+.from{color:var(--mute);font-size:.72rem;margin-left:.4rem}
+.stat{color:var(--mute);font-size:.71rem;margin-left:.25rem;font-family:var(--mono)}
+
+/* ── 论文表 ── */
+.ptable{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden}
+table{width:100%;border-collapse:collapse}
+td{padding:.55rem .85rem;border-bottom:1px solid var(--hair);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:hover{background:var(--hair)}
+.pt{font-weight:660;text-decoration:none;font-size:.9rem}
+.pt:hover{text-decoration:underline}
+.ps{color:var(--soft);font-size:.815rem;margin-top:.12rem;line-height:1.6}
+.up{text-align:right;color:var(--mute);width:3.6rem;font-size:.8rem;
+  font-family:var(--mono);white-space:nowrap}
+
+/* ── 每周精选横幅：论文区顶部，与今日上榜区分 ── */
+.weekly{display:flex;align-items:center;gap:.8rem;text-decoration:none;
+  background:linear-gradient(135deg,
+    color-mix(in srgb,var(--accent) 7%,var(--card)),var(--card));
+  border:1px solid color-mix(in srgb,var(--accent) 28%,var(--line));
+  border-radius:var(--r);padding:.7rem .9rem;margin-bottom:.45rem;
+  transition:border-color .12s,transform .12s}
+.weekly:hover{border-color:var(--accent);transform:translateY(-1px)}
+.w-tag{font-size:.63rem;font-weight:750;letter-spacing:.04em;color:var(--accent);
+  background:color-mix(in srgb,var(--accent) 14%,transparent);
+  padding:.22rem .45rem;border-radius:4px;white-space:nowrap;flex-shrink:0}
+.w-body{flex:1;min-width:0}
+.w-title{font-size:.94rem;font-weight:680;line-height:1.45}
+.w-sum{font-size:.8rem;color:var(--soft);line-height:1.55;margin-top:.1rem}
+.w-go{font-size:.76rem;color:var(--accent);font-weight:650;white-space:nowrap;
+  flex-shrink:0}
+
+/* ── 页脚 ── */
+.foot{margin-top:2rem;padding-top:.9rem;border-top:1px solid var(--line);
+  font-size:.74rem;color:var(--mute);display:flex;gap:.9rem;flex-wrap:wrap;
+  align-items:center}
+.foot a{color:var(--accent);text-decoration:none}
+.foot a:hover{text-decoration:underline}
+.foot details{margin-left:auto}
+.foot summary{font-size:.74rem}
+.foot table{margin:.5rem 0;font-size:.78rem}
+.foot td{padding:.25rem .5rem;border-color:var(--hair)}
+.foot p{margin:.4rem 0;max-width:60ch;line-height:1.7}
+
+@media(max-width:780px){
+  .grid{grid-template-columns:1fr}
+  .wrap{padding:1.4rem .9rem 3rem}
+  .hero h1{font-size:1.42rem}
+  .card.lead h3{font-size:1.06rem}
+  body{font-size:14.5px}
+  .foot details{margin-left:0}
+}
+@media print{
+  details,.foot{display:none}
+  .card{break-inside:avoid;box-shadow:none}
+  h2{position:static}
+}
+</style>
+</head>
+<body><div class="wrap"><div class="hero"><div class="hero-top"><span class="k">AI Daily Brief</span><span class="d">2026-09-01 · 星期二</span><a class="lang-switch" data-language-link href="en/2026-09-01.html">English</a></div><h1>今日 AI 动态</h1><div class="chips"><span class="chip"><b>29</b> 话题</span><span class="chip"><b>16</b> 信息源</span><span class="chip"><b>2</b> 多源报道</span><span class="chip"><b>11</b> 篇论文</span></div></div><section><h2>今日头条<span class="cnt">3</span></h2><div class="card lead i4"><span class="pill p4">重要</span><span class="pill pm">2 源</span><h3>OpenAI 发布 ChatGPT Work 及工具参考</h3><p>OpenAI 推出 ChatGPT Work 产品，Simon Willison 撰文解析其功能与复杂性，并发布了相关的工具与技能参考文档。该产品旨在通过强大的自动化能力改变工作流程，是 OpenAI 在企业级应用上的重要迭代。</p><details><summary>2 篇来源</summary><ul class="srcs"><li><a href="https://simonwillison.net/2026/Aug/30/understanding-chatgpt-work/" target="_blank" rel="noopener">Understanding ChatGPT Work</a><span class="from">Simon Willison</span></li><li><a href="https://codex-tool-reference.simonw.chatgpt.site/" target="_blank" rel="noopener">ChatGPT Work Tool and Skill Reference</a><span class="from">HN · codex-tool-reference.simonw.chatgpt.site</span><span class="stat">🔥183 💬51</span></li></ul></details></div><div class="card lead i4"><span class="pill p4">重要</span><h3>腾讯发布 Hy4 开源大模型预览版</h3><p>腾讯发布 Hy4 预览版，这是一款拥有 770B 总参数、49B 激活参数及 1M 上下文窗口的开源权重文本 LLM。该模型在 Hugging Face 上开放下载，展示了中国大厂在超大规模稀疏模型上的最新进展。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://simonwillison.net/2026/Aug/29/hy4/" target="_blank" rel="noopener">Introducing Hy4 Preview</a><span class="from">Simon Willison</span></li></ul></details></div><div class="card lead i4"><span class="pill p4">重要</span><h3>OpenAI 终止与 Cursor 的模型供应合同</h3><p>OpenAI 官方宣布，在 Cursor 被 SpaceX 收购后，决定终止向 Cursor 提供 OpenAI 模型的合同。这一决策反映了前沿实验室在商业合作与竞争格局变化下的战略调整，引发了行业对 AI 工具链独立性的关注。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex" target="_blank" rel="noopener">Our decision on Cursor following its acquisition by SpaceX</a><span class="from">OpenAI</span></li></ul></details></div></section><section id="模型与产品发布"><h2>🚀 模型与产品发布<span class="cnt">1</span></h2><div class="grid"><div class="card"><span class="pill p2">一般</span><h3>Almanac 推出企业级 AI 知识助手</h3><p>YC S26 项目 Almanac 在 Hacker News 发布，这是一款能够深入了解公司内部信息的 AI 助手。它旨在解决企业知识碎片化问题，通过整合内部数据提供精准的业务支持。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://usealmanac.com/" target="_blank" rel="noopener">Launch HN: Almanac (YC S26) – AI that knows your company</a><span class="from">HN · usealmanac.com</span><span class="stat">🔥47 💬42</span></li></ul></details></div></div></section><section id="研究突破"><h2>🔬 研究突破<span class="cnt">1</span></h2><div class="grid"><div class="card"><span class="pill p3">关注</span><h3>Google 发布 TimesFM-3 预测模型</h3><p>Google Research 发布 TimesFM-3，这是一个用于多变量时间序列预测的零样本基础模型。该模型旨在简化复杂的时间序列分析任务，提升数据管理领域的自动化水平。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://research.google/blog/timesfm-3-a-zero-shot-foundation-model-for-multivariate-forecasting/" target="_blank" rel="noopener">TimesFM-3: A zero-shot foundation model for multivariate forecasting</a><span class="from">Google Research</span></li></ul></details></div></div></section><section id="行业动态"><h2>📈 行业动态<span class="cnt">6</span></h2><div class="grid"><div class="card"><span class="pill p4">重要</span><h3>Nvidia 投资 35 亿美元入股联发科</h3><p>Nvidia 宣布向台湾芯片制造商联发科投资 35 亿美元。此举被视为 Nvidia 应对大型科技公司自建 AI 芯片趋势的战略布局，旨在巩固其在 AI 基础设施领域的核心地位。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://techcrunch.com/2026/08/31/nvidias-3-5b-mediatek-bet-reveals-its-plan-for-tackling-big-techs-ai-chip-buildout/" target="_blank" rel="noopener">Nvidia’s $3.5B MediaTek bet reveals its plan for tackling Big Tech’s AI chip buildout</a><span class="from">TechCrunch AI</span></li></ul></details></div><div class="card"><span class="pill p4">重要</span><h3>五角大楼整合 ChatGPT 与 Grok 入口</h3><p>美国五角大楼在其中央 AI 工具门户中集成了 OpenAI 的 ChatGPT 和 xAI 的 Grok，与 Google Gemini 并列。这标志着主流大模型正式进入美国国防核心工作流，引发对军事 AI 应用及供应商多元化的关注。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://techcrunch.com/2026/08/31/the-pentagon-now-has-its-own-version-of-chatgpt-and-grok/" target="_blank" rel="noopener">The Pentagon now has its own version of ChatGPT and Grok</a><span class="from">TechCrunch AI</span></li></ul></details></div><div class="card"><span class="pill p3">关注</span><h3>OpenAI 广告收入达 10 亿美元年化</h3><p>OpenAI 宣布 ChatGPT 广告业务的年化收入运行率达到 10 亿美元，并计划在全球范围内扩展。这一里程碑表明 AI 助手正在通过广告模式实现商业化闭环，支持更广泛的免费或低价访问。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads" target="_blank" rel="noopener">A milestone in expanding access to AI</a><span class="from">OpenAI</span></li></ul></details></div><div class="card"><span class="pill p3">关注</span><h3>OpenAI 助力日本构建公共 AI 基础设施</h3><p>OpenAI 与 Polimill 合作，利用 GPT 模型和 Codex 帮助日本地方政府搜索行政知识并加速开发。此举旨在通过 AI 提升公共服务的效率，是 AI 在政府基础设施领域落地的典型案例。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://openai.com/index/polimill" target="_blank" rel="noopener">Polimill builds Japan&#x27;s next-generation public AI infrastructure</a><span class="from">OpenAI</span></li></ul></details></div><div class="card"><span class="pill p3">关注</span><h3>Debian 决定不禁止 AI 生成代码</h3><p>Debian 项目投票通过新政策，允许开发者在贡献代码、维护及文档时使用 AI 工具。这一决定反映了开源社区对 AI 辅助编程的务实态度，承认其现实存在并试图通过规范而非禁令来管理风险。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://www.theverge.com/tech/986789/linux-debian-generative-ai-policy" target="_blank" rel="noopener">Debian won&amp;#8217;t ban AI code from its Linux distribution</a><span class="from">The Verge</span></li></ul></details></div><div class="card"><span class="pill p2">一般</span><h3>Autonomous 招聘金融推理系统工程师</h3><p>YC F25 公司 Autonomous 正在招聘工程师，其核心业务是部署前沿推理系统于金融市场，构建代理式财富策略师。这反映了 AI Agent 在垂直金融领域的落地趋势。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://news.ycombinator.com/item?id=49514781" target="_blank" rel="noopener">Autonomous (YC F25) is hiring engineers</a><span class="from">HN · news.ycombinator.com</span></li></ul></details></div></div></section><section id="观点与争议"><h2>💬 观点与争议<span class="cnt">4</span></h2><div class="grid"><div class="card"><span class="pill p3">关注</span><span class="pill pm">3 源</span><h3>Dwarkesh 解读 OpenAI 与 Hugging Face 冲突</h3><p>Dwarkesh Patel 发布文章，用通俗语言详细解释了近期 OpenAI 与 Hugging Face 之间关于 Agent 文明及潜在攻击事件的争议。该解读帮助公众理解两大平台在 AI 安全与生态治理上的分歧。</p><details><summary>3 篇来源</summary><ul class="srcs"><li><a href="https://www.dwarkesh.com/p/openai-huggingface-narration" target="_blank" rel="noopener">The rise and fall of agent civilizations</a><span class="from">Dwarkesh Patel</span></li><li><a href="https://www.dwarkesh.com/p/openai-huggingface" target="_blank" rel="noopener">The Rise and Fall of Agent Civilizations</a><span class="from">Dwarkesh Patel</span></li><li><a href="https://www.technologyreview.com/2026/08/31/1143180/hugging-face-hack-could-indicate-cultural-issues-at-openai/" target="_blank" rel="noopener">The Hugging Face hack could indicate cultural issues at OpenAI</a><span class="from">MIT Tech Review</span></li></ul></details></div><div class="card"><span class="pill p2">一般</span><h3>Sean Goedecke 谈工程师价值评估</h3><p>Sean Goedecke 撰文探讨在 AI 时代，软件工程师应如何被评估，提出“相对于替代品的价值”这一概念。文章反思了 AI 对传统工程岗位价值衡量的冲击，属于行业观点评论。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://seangoedecke.com/you-have-to-beat-the-models-at-something/" target="_blank" rel="noopener">You have to beat the models at something</a><span class="from">Sean Goedecke</span></li></ul></details></div><div class="card"><span class="pill p2">一般</span><h3>Simon Willison 谈 AI 时代的安全漏洞</h3><p>Simon Willison 评论了剑桥教授 Anil Madhavapeddy 的观点，指出如今仅需关于 bug 的谣言就足以让 AI 找到安全漏洞。这反映了 AI 在网络安全攻防两端能力的快速提升及其带来的新风险。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://simonwillison.net/2026/Aug/28/just-a-rumour-of-a-bug/" target="_blank" rel="noopener">Just a rumour of a bug is enough to find a security exploit these days</a><span class="from">Simon Willison</span></li></ul></details></div><div class="card"><span class="pill p2">一般</span><h3>Ed Zitron 讽刺 NVIDIA 循环融资</h3><p>Ed Zitron 发布付费文章，以讽刺手法批评 NVIDIA 的“循环融资”现象，质疑其估值与商业模式的可持续性。这是一篇针对特定公司财务策略的批评性评论。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://www.wheresyoured.at/premium-the-haters-guide-to-circular-financing-part-one/" target="_blank" rel="noopener">Premium: The Hater&#x27;s Guide To Circular Financing (Part One)</a><span class="from">Ed Zitron</span></li></ul></details></div></div></section><section id="工程实践"><h2>🛠️ 工程实践<span class="cnt">3</span></h2><div class="grid"><div class="card"><span class="pill p2">一般</span><h3>Simon Willison 介绍 wrapture 库</h3><p>Simon Willison 介绍了由 Graham Dumpleton 开发的 wrapture 库，该库扩展了 wrapt 的 monkeypatching 理念，应用于更广泛的场景。这是 Python 生态中一个具体的工程工具更新。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://simonwillison.net/2026/Aug/31/introducing-wrapture/" target="_blank" rel="noopener">Introducing wrapture</a><span class="from">Simon Willison</span></li></ul></details></div><div class="card"><span class="pill p2">一般</span><h3>Hebbian Robotics 发布机器人数据管道 SDK</h3><p>YC S26 初创公司 Hebbian Robotics 在 Hacker News 发布 HFlow SDK，旨在将机器人和人类操作员的多模态录音转化为可扩展的数据管道。这是针对具身智能数据瓶颈的工程实践尝试。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://github.com/Hebbian-Robotics/hflow" target="_blank" rel="noopener">Launch HN: Hebbian Robotics (YC S26) – Build scalable robotics data pipelines</a><span class="from">HN · github.com</span><span class="stat">🔥40 💬10</span></li></ul></details></div><div class="card"><span class="pill p1">一般</span><h3>Claude 用于复古计算机磁带驱动器模拟</h3><p>开发者利用 Claude 辅助模拟 QIC-117 磁带驱动器，展示了大模型在复古计算和硬件逆向工程中的趣味性应用。属于个人技术博客的日常记录。</p><details><summary>来源</summary><ul class="srcs"><li><a href="https://dmitrybrant.com/2026/08/23/claude-x-retrocomputing-emulating-a-qic-117-tape-drive" target="_blank" rel="noopener">Claude × retrocomputing: emulating a QIC-117 tape drive</a><span class="from">HN · dmitrybrant.com</span><span class="stat">🔥22 💬13</span></li></ul></details></div></div></section><section id="papers"><h2>📄 论文<span class="cnt">10</span></h2><a class="weekly" href="https://github.com/dair-ai/AI-Papers-of-the-Week" target="_blank" rel="noopener"><div class="w-tag">每周精选</div><div class="w-body"><div class="w-title">dair-ai 每周论文精选（August 24 - August 30）</div><div class="w-sum">DAIR.AI 人工维护的每周 AI 论文精选，每期挑选约 10 篇最值得关注的论文并附解读。最新一期：August 24 - August 30。</div></div><div class="w-go">查看 →</div></a><div class="ptable"><table><tbody><tr><td><a class="pt" href="https://huggingface.co/papers/2608.28281" target="_blank" rel="noopener">LoopArena: 评估模型作为循环工程运行时控制器</a><div class="ps">针对新兴的循环工程实践，提出基准测试以评估大模型在监控进度、分配任务和决策代理行为方面的能力。</div></td><td class="up">👍89</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.27550" target="_blank" rel="noopener">VLA模型：基于表示中心的持续预训练</a><div class="ps">解决机器人数据扩展难的问题，提出以表示为中心的持续预训练方法，减少对昂贵具身数据采集的依赖。</div></td><td class="up">👍72</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.18524" target="_blank" rel="noopener">DART-SD: 多轮工具调用代理的自蒸馏</a><div class="ps">通过感知菱形拓扑的检索与调优，克服全长度轨迹模仿的限制，提升多轮工具调用代理的性能。</div></td><td class="up">👍66</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.28122" target="_blank" rel="noopener">Agentic Artifact Creation: 系统、评估与原则</a><div class="ps">探讨如何将生成式模型的输出转化为完整、可靠的工件，提出系统架构、评估方法及未来机会。</div></td><td class="up">👍52</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.27549" target="_blank" rel="noopener">Code as Worlds: 可执行世界表示的物理推理</a><div class="ps">利用代理发现可执行的世界表示，弥补视觉语言模型缺乏显式物理机制表示的缺陷，增强物理推理能力。</div></td><td class="up">👍43</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.26582" target="_blank" rel="noopener">J-Zero: 零数据下挑战者-求解者-裁判共进化</a><div class="ps">在不可验证领域实现自进化，通过挑战者、求解者和裁判的协同进化，降低对人类监督数据的依赖。</div></td><td class="up">👍35</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.27529" target="_blank" rel="noopener">长时程流式3D重建：重访局部上下文</a><div class="ps">针对长视频流式3D重建，优化局部上下文策略，在有限内存和计算下实现在线相机运动与几何估计。</div></td><td class="up">👍29</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.27370" target="_blank" rel="noopener">Puro-2B: 低成本RTX 5090预训练Qwen2-1.5B</a><div class="ps">展示在单张RTX 5090显卡上以约5090美元成本预训练2B参数语言模型，降低学术和开源社区门槛。</div></td><td class="up">👍28</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.23478" target="_blank" rel="noopener">Act with Intent: VLA模型行为意图蒸馏</a><div class="ps">通过蒸馏行为意图而非仅模仿动作，使视觉语言动作模型理解局部目标，提升机器人动作生成的合理性。</div></td><td class="up">👍27</td></tr><tr><td><a class="pt" href="https://huggingface.co/papers/2608.28460" target="_blank" rel="noopener">LayerRecall: 视频生成长时程一致性记忆路由</a><div class="ps">提出状态条件记忆路由器，解决自回归视频扩散中近期缓存导致历史线索丢失的问题，保持长视频一致性。</div></td><td class="up">👍25</td></tr></tbody></table></div></section><div class="foot"><span>生成于 2026-09-01 02:02</span><a href="index.html">最新</a><a href="archive.html">历史</a><details><summary>数据来源与说明</summary><table><tbody><tr><td>Dwarkesh Patel</td><td>2</td></tr><tr><td>Ed Zitron</td><td>1</td></tr><tr><td>Google Research</td><td>1</td></tr><tr><td>HN · codex-tool-reference.simonw.chatgpt.site</td><td>1</td></tr><tr><td>HN · dmitrybrant.com</td><td>1</td></tr><tr><td>HN · github.com</td><td>1</td></tr><tr><td>HN · news.ycombinator.com</td><td>1</td></tr><tr><td>HN · usealmanac.com</td><td>1</td></tr><tr><td>HuggingFace Papers</td><td>10</td></tr><tr><td>MIT Tech Review</td><td>1</td></tr><tr><td>OpenAI</td><td>3</td></tr><tr><td>Sean Goedecke</td><td>1</td></tr><tr><td>Simon Willison</td><td>4</td></tr><tr><td>TechCrunch AI</td><td>2</td></tr><tr><td>The Verge</td><td>1</td></tr><tr><td>dair-ai Papers of the Week</td><td>1</td></tr></tbody></table><p>每日从官方实验室博客、KOL 博客、科技媒体、HuggingFace 论文榜和 Hacker News 抓取，经关键词过滤与去重后，由 Groq 将讲同一件事的条目聚合成话题，生成中文标题、摘要与重要性评分。</p><p>重要性标签为模型判断，仅供排序参考；论文按社区 upvotes 排序。</p></details></div></div></body>
+</html>
